@@ -24,6 +24,10 @@ module.exports = {
         use: ['babel-loader', 'ts-loader'],
       },
       {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader /* , 'style-loader' */, 'css-loader'],
+      },
+      {
         test: /\.scss$/,
         use: [MiniCssExtractPlugin.loader /* , 'style-loader' */, 'css-loader', 'sass-loader'],
       }, // 图片

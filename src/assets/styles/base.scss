@@ -1,0 +1,23 @@
+:root {
+  --color-background: #fff;
+  --color-background-dark: #000;
+  --color-hover-background: rgb(216, 216, 216);
+  --color-foreground: rgb(240, 240, 240);
+  --color-text: #333;
+  --color-text-light: rgb(120, 120, 120);
+  --color-theme: rgb(204, 51, 51);
+  --zIndex-hide: -1;
+  --zIndex-bottom: 0;
+  --zIndex-senior: 10;
+  --zIndex-junior: 20;
+  --zIndex-top: 30;
+
+  box-sizing: border-box;
+  color: var(--color-text);
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
