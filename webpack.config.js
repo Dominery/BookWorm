@@ -68,6 +68,7 @@ module.exports = {
       styles: resolve('src/assets/styles'),
       components: resolve('src/components'),
       utils: resolve('src/utils'),
+      images: resolve('src/assets/images'),
     },
   },
   plugins: [

@@ -1,0 +1,11 @@
+@import 'styles/mixin.scss';
+
+.area {
+  &__wrapper {
+    width: 100%;
+    position: relative;
+  }
+  &__stretchy {
+    @include coverArea;
+  }
+}

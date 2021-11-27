@@ -1,14 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { FlipBook, SideBarMenu, ToggleMenu } from 'components/index'
-
-const App = function App() {
-  return (
-    <div>
-      <SideBarMenu />
-      <FlipBook />
-    </div>
-  )
-}
+import App from './pages/index'
 
 ReactDOM.render(<App />, document.getElementById('root'))

@@ -6,11 +6,13 @@
   --color-text: #333;
   --color-text-light: rgb(120, 120, 120);
   --color-theme: rgb(204, 51, 51);
+  --color-shadow: rgba(0, 0, 0, 0.1);
   --zIndex-hide: -1;
   --zIndex-bottom: 0;
   --zIndex-senior: 10;
   --zIndex-junior: 20;
   --zIndex-top: 30;
+  --window-lg: 992px;
 
   box-sizing: border-box;
   color: var(--color-text);
