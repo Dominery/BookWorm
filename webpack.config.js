@@ -12,6 +12,7 @@ module.exports = {
   output: {
     path: resolve('dist'),
     filename: 'js/[name].js',
+    clean: true,
   },
   module: {
     rules: [
@@ -45,11 +46,17 @@ module.exports = {
       // 字体文件
       {
         test: /\.(woff2?|eot|ttf|otf)$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: 'fonts/[name].[ext]',
-        },
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              name: 'fonts/[name]-[hash:4].[ext]',
+              esModule: false,
+            },
+          },
+        ],
+        type: 'javascript/auto',
       },
     ],
   },
