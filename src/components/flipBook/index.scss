@@ -1,0 +1,59 @@
+$book-border: 0.5em;
+$book-color: white;
+
+.flip-book {
+  position: relative;
+  border: $book-border solid var(--color-theme);
+  width: 8em;
+  height: 4.5em;
+  &__page {
+    position: absolute;
+    left: 50%;
+    top: -$book-border;
+    border-top: $book-border solid var(--color-theme);
+    border-right: $book-border solid var(--color-theme);
+    border-bottom: $book-border solid var(--color-theme);
+    background-color: var(--color-background);
+    width: 4em;
+    height: 4.5em;
+    transform-origin: 0% 50%;
+    animation: flip 1.2s infinite linear;
+
+    @for $i from 1 through 3 {
+      &:nth-child(#{$i}) {
+        z-index: -$i;
+        animation-delay: 1.4s * $i;
+      }
+    }
+  }
+}
+@keyframes flip {
+  0% {
+    transform: perspective(600px) rotateY(-0deg);
+  }
+
+  20% {
+    background: darken($book-color, 10%);
+  }
+  30% {
+    transform: perspective(200px) rotateY(-90deg);
+    background: $book-color;
+  }
+
+  50% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 0;
+  }
+
+  60% {
+    transform: perspective(200px) rotateY(-180deg);
+    background: $book-color;
+  }
+
+  100% {
+    transform: perspective(200px) rotateY(-180deg);
+    background: $book-color;
+  }
+}

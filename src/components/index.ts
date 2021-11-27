@@ -1,4 +1,4 @@
 import ToggleMenu from './toggleMenu/index'
 import SideBarMenu from './sideBarMenu/index'
-
-export { ToggleMenu, SideBarMenu }
+import FlipBook from './flipBook/index'
+export { ToggleMenu, SideBarMenu, FlipBook }
