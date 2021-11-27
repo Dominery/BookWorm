@@ -1,0 +1,45 @@
+@font-face {
+  font-family: 'iconfont'; /* Project id 2967348 */
+  src: url('//at.alicdn.com/t/font_2967348_vod9htuv4sc.woff2?t=1637895767139') format('woff2'),
+    url('//at.alicdn.com/t/font_2967348_vod9htuv4sc.woff?t=1637895767139') format('woff'),
+    url('//at.alicdn.com/t/font_2967348_vod9htuv4sc.ttf?t=1637895767139') format('truetype');
+}
+.iconfont {
+  font-family: 'iconfont';
+}
+
+.sidebar-menu {
+  padding: 1em 0;
+  width: 15em;
+  border-right: 1px solid var(--color-foreground);
+  font-size: 1.2rem;
+  &__title {
+    font-family: 'Yellowtail';
+    padding-left: 1em;
+    font-size: 2rem;
+    margin-bottom: 2em;
+    color: var(--color-text-light);
+    &:hover {
+      color: var(--color-theme);
+    }
+  }
+  &__content {
+    color: var(--color-text-light);
+  }
+  &__item {
+    padding: 1em;
+    color: var(--color-text-light);
+    cursor: pointer;
+    &__icon {
+      font-size: 1.2em;
+      margin-right: 2em;
+    }
+    &:hover {
+      background-color: var(--color-hover-background);
+      color: var(--color-text);
+      .sidebar-menu__item__icon {
+        color: var(--color-theme);
+      }
+    }
+  }
+}
