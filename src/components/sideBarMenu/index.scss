@@ -8,6 +8,14 @@
   font-family: 'iconfont';
 }
 
+@mixin select {
+  background-color: var(--color-hover-background);
+  color: var(--color-text);
+  .sidebar-menu__item__icon {
+    color: var(--color-theme);
+  }
+}
+
 .sidebar-menu {
   padding: 1em 0;
   width: 15em;
@@ -35,11 +43,11 @@
       margin-right: 2em;
     }
     &:hover {
-      background-color: var(--color-hover-background);
-      color: var(--color-text);
-      .sidebar-menu__item__icon {
-        color: var(--color-theme);
-      }
+      @include select();
     }
+  }
+  &--active {
+    cursor: auto;
+    @include select();
   }
 }

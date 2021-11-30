@@ -6,8 +6,7 @@ $animate-mode: ease-in;
   height: 100%;
   position: relative;
   overflow: hidden;
-  top: 0;
-  transition: top $animate-duration $animate-mode;
+
   box-shadow: 0px 1px 1px var(--color-shadow), 0px 2px 2px var(--color-shadow), 0px 5px 5px var(--color-shadow);
   cursor: pointer;
   &__img {
@@ -55,7 +54,6 @@ $animate-mode: ease-in;
     transition: all $animate-duration $animate-mode;
   }
   &:hover {
-    top: -5%;
     .book__cover {
       &::after {
         transform: translateY(-50%);

@@ -1,0 +1,10 @@
+@import '../assets/styles/mixin.scss';
+.app {
+  @include coverArea;
+  display: flex;
+  &__content {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}

@@ -2,45 +2,36 @@ $window-sl: 1500px;
 $window-xl: 1200px;
 $window-lg: 992px;
 $window-md: 768px;
-.bookshelf-page {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  .bookshelf {
-    flex: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 2em;
-    &__book {
-      display: inline-block;
-      padding: 1em;
-      width: 50%;
-    }
+
+.bookshelf {
+  padding: 2em;
+  &__book {
+    display: inline-block;
+    padding: 1em;
+    width: 50%;
   }
 }
+
 @media (min-width: $window-md) {
-  .bookshelf-page .bookshelf__book {
+  .bookshelf__book {
     width: 33.3%;
   }
 }
 
 @media (min-width: $window-lg) {
-  .bookshelf-page .bookshelf__book {
+  .bookshelf__book {
     width: 25%;
   }
 }
 
 @media (min-width: $window-xl) {
-  .bookshelf-page .bookshelf__book {
+  .bookshelf__book {
     width: 20%;
   }
 }
 
 @media (min-width: $window-sl) {
-  .bookshelf-page .bookshelf__book {
-    width: 16.67%;
+  .bookshelf__book {
+    width: 14.28%;
   }
 }

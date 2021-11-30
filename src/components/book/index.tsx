@@ -4,7 +4,7 @@ import './index.scss'
 
 function Book(props) {
   const [src, setSrc] = useImgLoad()
-  let url = 'https://images-na.ssl-images-amazon.com/images/I/81WcnNQ-TBL.jpg'
+  let url = 'http://pt.yuenov.com:15555/file/group1/book/5e924ea8-19ac-4322-97b8-3b088f428b7b.jpg'
   useEffect(() => {
     setSrc(url)
     // eslint-disable-next-line react-hooks/exhaustive-deps
