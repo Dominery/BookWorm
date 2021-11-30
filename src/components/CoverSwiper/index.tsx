@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import BookImage from '../bookImage/index'
 
 import './index.scss'
 interface Item {
@@ -44,13 +45,13 @@ function CoverSwiper() {
         }}
       >
         <div className="cover-swiper__item" data-index={swipe[0]}>
-          <img src={items[0].url} alt="" className="cover-swiper__item__img" />
+          <BookImage src={items[0].url} className="cover-swiper__item__img" />
         </div>
         <div className="cover-swiper__item" data-index={swipe[2]}>
-          <img src={items[1].url} alt="" className="cover-swiper__item__img" />
+          <BookImage src={items[1].url} className="cover-swiper__item__img" />
         </div>
         <div className="cover-swiper__item" data-index={swipe[1]}>
-          <img src={items[2].url} alt="" className="cover-swiper__item__img" />
+          <BookImage src={items[2].url} className="cover-swiper__item__img" />
         </div>
       </div>
       <div className="cover-swiper__info">
