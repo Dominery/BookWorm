@@ -5,6 +5,7 @@ import BookShelfPage from './bookshelf/index'
 import Discover from './discover/index'
 
 import './index.scss'
+import { Navigation } from '../utils/data'
 
 export default function App() {
   return (
@@ -13,10 +14,10 @@ export default function App() {
         <SideBarMenu />
         <div className="app__content">
           <Switch>
-            <Route exact path="/">
+            <Route exact path={Navigation.BookShelf}>
               <BookShelfPage />
             </Route>
-            <Route path="/discover" component={Discover} />
+            <Route path={Navigation.Discover} component={Discover} />
           </Switch>
         </div>
       </div>
