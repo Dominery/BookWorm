@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import BookImage from '../bookImage/index'
+import { useSequential } from 'utils/sequentialGenerator'
 
 import './index.scss'
 interface Item {
@@ -26,11 +27,10 @@ function CoverSwiper() {
       desc: '弘治十年，这是大明王朝美好的中午。　　此时，小冰河期已经来临，绵长的严寒肆虐大地，也同样在吹打着这个土地兼并日益严重的王朝。　　此时，欧洲的文艺复兴运动犹如一道耀眼的光芒刺破中世纪的黑暗。　　此时，俄罗斯刚刚摆脱蒙古控制不到二十年。　　此时，距离哥伦布初次抵达美洲也才',
     },
   ]
-  let [swipe, setSwipe] = useState([0, 1, 2])
+  const [range, next] = useSequential(items.length)
   useEffect(() => {
     let autoCircle = setInterval(() => {
-      let [first, ...rest] = swipe
-      setSwipe([...rest, first])
+      next()
     }, 3000)
     return () => {
       clearInterval(autoCircle)
@@ -41,25 +41,29 @@ function CoverSwiper() {
       <div
         className="cover-swiper__banner"
         style={{
-          backgroundImage: `url(${items[swipe[0]].url})`,
+          backgroundImage: `url(${getCurrentItem(range).url})`,
         }}
       >
-        <div className="cover-swiper__item" data-index={swipe[0]}>
+        <div className="cover-swiper__item" data-index={range[0]}>
           <BookImage src={items[0].url} className="cover-swiper__item__img" />
         </div>
-        <div className="cover-swiper__item" data-index={swipe[2]}>
+        <div className="cover-swiper__item" data-index={range[1]}>
           <BookImage src={items[1].url} className="cover-swiper__item__img" />
         </div>
-        <div className="cover-swiper__item" data-index={swipe[1]}>
+        <div className="cover-swiper__item" data-index={range[2]}>
           <BookImage src={items[2].url} className="cover-swiper__item__img" />
         </div>
       </div>
       <div className="cover-swiper__info">
-        <h3 className="cover-swiper__info__title">{items[swipe[0]].title}</h3>
-        <p className="cover-swiper__info__desc">{items[swipe[0]].desc}</p>
+        <h3 className="cover-swiper__info__title">{getCurrentItem(range).title}</h3>
+        <p className="cover-swiper__info__desc">{getCurrentItem(range).desc}</p>
       </div>
     </div>
   )
+  function getCurrentItem(orders: number[]) {
+    const index = orders.findIndex((order) => order === 0)
+    return items[index]
+  }
 }
 
 export default CoverSwiper
