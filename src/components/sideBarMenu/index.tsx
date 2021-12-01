@@ -17,12 +17,7 @@ function getMenuList(active: string, setActive: React.Dispatch<React.SetStateAct
 function SideBarMenu() {
   const match = useRouteMatch()
   const [url, setUrl] = useState(match.url)
-  return (
-    <nav className="sidebar-menu">
-      <h1 className="sidebar-menu__title">Bookworm</h1>
-      <div className="sidebar-menu__content">{getMenuList(url, setUrl)}</div>
-    </nav>
-  )
+  return <nav className="sidebar-menu">{getMenuList(url, setUrl)}</nav>
 }
 
 export default SideBarMenu

@@ -11,6 +11,15 @@ function BookShelfPage() {
           <Book />
         </Area>
       </div>
+      <div className="bookshelf__placeholder"></div>
+      <div className="bookshelf__placeholder"></div>
+      <div className="bookshelf__placeholder"></div>
+      <div className="bookshelf__placeholder"></div>
+      <div className="bookshelf__placeholder"></div>
+      <div className="bookshelf__placeholder"></div>
+      <div className="bookshelf__placeholder"></div>
+      <div className="bookshelf__placeholder"></div>
+      <div className="bookshelf__placeholder"></div>
     </div>
   )
 }

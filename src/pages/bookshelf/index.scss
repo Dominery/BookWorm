@@ -1,34 +1,20 @@
 @import '../../assets/styles/variables.scss';
 
 .bookshelf {
-  padding: 2em;
-  &__book {
+  margin-top: 2em;
+  margin-right: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  &__book,
+  &__placeholder {
     display: inline-block;
-    padding: 1em;
-    width: 50%;
-  }
-}
-
-@media (min-width: $window-md) {
-  .bookshelf__book {
-    width: 33.3%;
-  }
-}
-
-@media (min-width: $window-lg) {
-  .bookshelf__book {
-    width: 25%;
-  }
-}
-
-@media (min-width: $window-xl) {
-  .bookshelf__book {
-    width: 20%;
-  }
-}
-
-@media (min-width: $window-sl) {
-  .bookshelf__book {
-    width: 14.28%;
+    width: 10em;
+    margin-left: 2em;
+    margin-bottom: 2em;
+    @media (min-width: $window-lg) {
+      margin-left: 3em;
+      margin-bottom: 3em;
+    }
   }
 }
