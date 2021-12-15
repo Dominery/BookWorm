@@ -5,27 +5,31 @@ enum Navigation {
   Category = '/categories',
 }
 
-const sideBar = [
+const nav = [
   {
-    id: Navigation.BookShelf,
+    to: Navigation.BookShelf,
     title: '我的书架',
     icon: '&#xf038;',
+    activeIcon: '&#xe601;',
   },
   {
-    id: Navigation.My,
-    title: '浏览历史',
-    icon: '&#xe6b4;',
-  },
-  {
-    id: Navigation.Discover,
+    to: Navigation.Discover,
     title: '发现',
-    icon: '&#xe621;',
+    icon: '&#xe610;',
+    activeIcon: '&#xe621;',
   },
   {
-    id: Navigation.Category,
+    to: Navigation.Category,
     title: '分类',
-    icon: '&#xe6a2;',
+    icon: '&#xe630;',
+    activeIcon: '&#xe6a2;',
+  },
+  {
+    to: Navigation.My,
+    title: '我的',
+    icon: '&#xe78b;',
+    activeIcon: '&#xe78c;',
   },
 ]
 
-export { Navigation, sideBar }
+export { Navigation, nav }

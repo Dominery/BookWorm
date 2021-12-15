@@ -4,4 +4,5 @@ import FlipBook from './flipBook/index'
 import Book from './book/index'
 import Area from './area/index'
 import CoverSwiper from './CoverSwiper/index'
-export { ToggleMenu, SideBarMenu, FlipBook, Book, Area, CoverSwiper }
+import TabBar from './tabbar/index'
+export { ToggleMenu, SideBarMenu, FlipBook, Book, Area, CoverSwiper, TabBar }
