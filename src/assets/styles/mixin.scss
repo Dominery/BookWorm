@@ -15,3 +15,11 @@
   white-space: normal !important;
   word-wrap: break-word;
 }
+
+@mixin scroll-shadow() {
+  background: linear-gradient(var(--color-background) 15%, transparent 100%) 0 0/100% 100px local,
+    radial-gradient(at 50% 0, rgba(0, 0, 0, 0.2), transparent 70%) 0 0/100% 25px scroll,
+    linear-gradient(transparent 75%, var(--color-background) 15%) 100% 100%/100% 100px local,
+    radial-gradient(at 50% 100%, rgba(0, 0, 0, 0.2), transparent 70%) 100% 100%/100% 25px scroll;
+  background-repeat: no-repeat;
+}

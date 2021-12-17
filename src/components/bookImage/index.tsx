@@ -3,7 +3,7 @@ import { useImgLoad } from 'utils/imgLoad'
 
 interface IProp {
   src: string
-  className: string
+  className?: string
   alt?: string
 }
 

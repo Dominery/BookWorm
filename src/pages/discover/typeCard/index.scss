@@ -1,0 +1,21 @@
+.type-card {
+  background-color: var(--color-background);
+  padding: 0.8em 0.6em;
+  border-radius: 0.5em;
+  &__head {
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.5em;
+  }
+  &__more {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+  }
+  &__body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}

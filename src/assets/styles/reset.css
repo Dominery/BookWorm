@@ -50,6 +50,7 @@ nav {
   outline: none;
 
   font-family: 'PingFangSCRegular';
+  font-size: inherit;
 }
 
 i,

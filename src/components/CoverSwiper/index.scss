@@ -2,15 +2,19 @@
 @import '../../assets/styles/variables.scss';
 .cover-swiper {
   display: flex;
+  flex-direction: column;
+  border-radius: 1em;
+  overflow: hidden;
+  box-shadow: 1px 1px 5px var(--color-shadow);
   &__banner {
-    width: 24em;
-    height: 16em;
     position: relative;
+    height: 12em;
     &::before {
       content: '';
       @include coverArea;
       background-color: var(--color-mask);
     }
+    background-size: 8em 12em;
   }
   &__item {
     position: absolute;
@@ -55,7 +59,6 @@
     padding: 1em;
     background-color: var(--color-darken-background);
     flex: 1;
-    order: -1;
     height: 16em;
     &__title {
       text-align: center;
@@ -63,19 +66,9 @@
     }
     &__desc {
       text-indent: 2em;
-      @include multiline-ellipsis(8);
+      @include multiline-ellipsis(4);
       line-height: 1.5em;
-      height: 12em;
-    }
-  }
-}
-
-@media (min-width: $window-lg) {
-  .cover-swiper {
-    flex-direction: column;
-    width: 24em;
-    &__info {
-      order: 0;
+      height: 6em;
     }
   }
 }

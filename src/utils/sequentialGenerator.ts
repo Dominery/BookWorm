@@ -2,13 +2,15 @@ import { useRef, useState } from 'react'
 
 interface node {
   next: node
+  pre: node
   value: number
 }
 
-function createNode(value: number, next: node = null): node {
+function createNode(value: number, next: node = null, pre: node = null): node {
   return {
     value,
     next,
+    pre,
   }
 }
 
@@ -20,8 +22,10 @@ class SequentialGenerator {
     for (let i = 1; i < range; i++) {
       const newNode = createNode(i)
       lastNode.next = newNode
+      newNode.pre = lastNode
       lastNode = newNode
     }
+    this.current.pre = lastNode
     lastNode.next = this.current
   }
   /**
@@ -29,23 +33,23 @@ class SequentialGenerator {
    */
   public getNext() {
     this.current = this.current.next
-    return this.iter(this.current)
+    return this.iter(this.current, (item) => item.next)
   }
   /**
    * get
    */
   public get() {
-    return this.iter(this.current)
+    return this.iter(this.current, (item) => item.next)
   }
   /**
    * iter
    */
-  private iter(start: node) {
+  private iter(start: node, func: (item: node) => node) {
     const result = [start.value]
-    let temp = start.next
+    let temp = func(start)
     while (temp !== start) {
       result.push(temp.value)
-      temp = temp.next
+      temp = func(temp)
     }
     return result
   }
