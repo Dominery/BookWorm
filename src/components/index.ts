@@ -9,6 +9,7 @@ import SearchBox from './searchBox/index'
 import { verticalBooks, booksWithoutDesc, booksWithDesc } from './book/bookGenerator'
 import Layout from './layout/index'
 import Header from './header/index'
+import BackIcon from './backIcon/index'
 export {
   ToggleMenu,
   SideBarMenu,
@@ -23,4 +24,5 @@ export {
   booksWithDesc,
   Layout,
   Header,
+  BackIcon,
 }

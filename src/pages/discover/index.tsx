@@ -5,7 +5,7 @@ import './index.scss'
 import { useDiscoverData } from 'service/index'
 import typeCards from './typeCardGenerator'
 
-function Discover() {
+function Discover({ match }) {
   const { data, getData } = useDiscoverData()
   useEffect(() => {
     getData()
@@ -13,7 +13,7 @@ function Discover() {
   }, [])
   return (
     <Layout
-      footer={<TabBar />}
+      footer={<TabBar active={match.url} />}
       header={
         <Header>
           <SearchBox />

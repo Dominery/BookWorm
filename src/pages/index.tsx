@@ -12,9 +12,7 @@ export default function App() {
     <Router>
       <div className="app">
         <Switch>
-          <Route path={Navigation.BookShelf}>
-            <BookShelfPage />
-          </Route>
+          <Route path={Navigation.BookShelf} component={BookShelfPage} />
           <Route exact path={Navigation.Discover} component={Discover} />
           <Route path={Navigation.BOOK} component={BookDetail} />
         </Switch>

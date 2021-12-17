@@ -1,20 +1,20 @@
 import React from 'react'
+import { Header, Layout, SearchBox, TabBar } from 'components/index'
 
 import './index.scss'
 
-function BookShelfPage() {
+function BookShelfPage({ match }) {
   return (
-    <div className="bookshelf">
-      <div className="bookshelf__placeholder"></div>
-      <div className="bookshelf__placeholder"></div>
-      <div className="bookshelf__placeholder"></div>
-      <div className="bookshelf__placeholder"></div>
-      <div className="bookshelf__placeholder"></div>
-      <div className="bookshelf__placeholder"></div>
-      <div className="bookshelf__placeholder"></div>
-      <div className="bookshelf__placeholder"></div>
-      <div className="bookshelf__placeholder"></div>
-    </div>
+    <Layout
+      footer={<TabBar active={match.url} />}
+      header={
+        <Header>
+          <SearchBox />
+        </Header>
+      }
+    >
+      <></>
+    </Layout>
   )
 }
 

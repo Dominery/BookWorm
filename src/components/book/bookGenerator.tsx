@@ -1,13 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { shuffle } from 'utils/random'
 import Book from './index'
 interface BookInfo {
-  url: string
+  imgUrl: string
   author: string
   title: string
   desc: string
-  category: string
-  id: number
+  categoryName: string
+  bookId: number
   [prop: string]: string | number
 }
 const BOOK_NAME_CLASS = 'book__title'
@@ -16,10 +17,12 @@ function shuffleBooks(books: BookInfo[], limit: number) {
   return shuffle(books).slice(0, limit)
 }
 function mapFunc(contentFunc: (book: BookInfo) => JSX.Element, className: string, vertical = false) {
-  return (book) => (
-    <Book url={book.url} vertical={vertical} key={book.url} className={className} id={book.id}>
-      {contentFunc(book)}
-    </Book>
+  return (book: BookInfo) => (
+    <Link to={`/book/${book.bookId}`} key={book.bookId} className={className}>
+      <Book imgUrl={book.imgUrl} vertical={vertical}>
+        {contentFunc(book)}
+      </Book>
+    </Link>
   )
 }
 function verticalBooks(books: BookInfo[], limit: number, className = '') {
@@ -50,7 +53,7 @@ function booksWithoutDesc(books: BookInfo[], limit: number, className = '') {
         <>
           <p className={BOOK_NAME_CLASS}>{book.title}</p>
           <p>{book.author}</p>
-          <p>{book.category}</p>
+          <p>{book.categoryName}</p>
         </>
       ),
       className,

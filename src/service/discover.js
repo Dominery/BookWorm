@@ -265,9 +265,8 @@ let bookData = [
 
 function bookInfoAdapter(bookInfo) {
   // eslint-disable-next-line no-unused-vars
-  const { categoryName, coverImg, bookId, ...info } = bookInfo
-  info.url = IMG_HOST + coverImg
-  info.id = bookId
+  const { coverImg, ...info } = bookInfo
+  info.imgUrl = IMG_HOST + coverImg
   return info
 }
 function useDiscoverData() {

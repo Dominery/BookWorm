@@ -5,9 +5,9 @@ function Header(props: { children: JSX.Element; left?: JSX.Element; right?: JSX.
   const { left, right, children } = props
   return (
     <div className="header">
-      {left}
-      {children}
-      {right}
+      {left && <div className="header__left">{left}</div>}
+      <div className="header__content">{children}</div>
+      {right && <div className="header__right">{right}</div>}
     </div>
   )
 }

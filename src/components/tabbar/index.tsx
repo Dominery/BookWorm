@@ -4,14 +4,9 @@ import { nav } from 'utils/data'
 
 import './index.scss'
 
-function createNav(active: string, setActive: React.Dispatch<React.SetStateAction<string>>) {
+function createNav(active: string) {
   return nav.map((item) => (
-    <Link
-      to={item.to}
-      key={item.to}
-      className={`tab-bar__item ${active === item.to ? 'tab-bar__item--active' : ''}`}
-      onClick={() => setActive(item.to)}
-    >
+    <Link to={item.to} key={item.to} className={`tab-bar__item ${active === item.to ? 'tab-bar__item--active' : ''}`}>
       <i
         className="tab-bar__item__icon iconfont"
         dangerouslySetInnerHTML={{ __html: active === item.to ? item.activeIcon : item.icon }}
@@ -21,11 +16,9 @@ function createNav(active: string, setActive: React.Dispatch<React.SetStateActio
   ))
 }
 
-function TabBar() {
-  const match = useRouteMatch()
-  const [active, setActive] = useState(match.url)
-  const show = !!nav.find((item) => item.to === active)
-  return show && <div className="tab-bar">{createNav(active, setActive)}</div>
+function TabBar(props: { active?: string }) {
+  const { active } = props
+  return <div className="tab-bar">{createNav(active)}</div>
 }
 
 export default TabBar

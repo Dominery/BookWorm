@@ -1,12 +1,14 @@
 enum Navigation {
-  BookShelf = '/b',
+  BookShelf = '/bookshelf',
   My = '/my',
-  Discover = '/',
+  Discover = '/d',
   Category = '/categories',
-  BOOK = '/book/:id',
+  BOOK = '/',
   MORE = '/more/:type',
 }
-
+enum ICONS {
+  RIGHT_ARROW = '&#xe605;',
+}
 const navData = [
   {
     to: Navigation.BookShelf,
@@ -34,4 +36,4 @@ const navData = [
   },
 ]
 
-export { Navigation, navData as nav }
+export { Navigation, navData as nav, ICONS }
