@@ -13,8 +13,8 @@
     padding: 1em 1em 0;
     overflow-y: auto;
   }
-  .content > * + * {
-    margin-top: 2em;
+  .content > * {
+    margin-bottom: 2em;
   }
 }
 

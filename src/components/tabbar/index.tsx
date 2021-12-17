@@ -24,7 +24,8 @@ function createNav(active: string, setActive: React.Dispatch<React.SetStateActio
 function TabBar() {
   const match = useRouteMatch()
   const [active, setActive] = useState(match.url)
-  return <div className="tab-bar">{createNav(active, setActive)}</div>
+  const show = !!nav.find((item) => item.to === active)
+  return show && <div className="tab-bar">{createNav(active, setActive)}</div>
 }
 
 export default TabBar

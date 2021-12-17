@@ -7,6 +7,7 @@ interface BookInfo {
   title: string
   desc: string
   category: string
+  id: number
   [prop: string]: string | number
 }
 const BOOK_NAME_CLASS = 'book__title'
@@ -16,7 +17,7 @@ function shuffleBooks(books: BookInfo[], limit: number) {
 }
 function mapFunc(contentFunc: (book: BookInfo) => JSX.Element, className: string, vertical = false) {
   return (book) => (
-    <Book url={book.url} vertical={vertical} key={book.url} className={className}>
+    <Book url={book.url} vertical={vertical} key={book.url} className={className} id={book.id}>
       {contentFunc(book)}
     </Book>
   )

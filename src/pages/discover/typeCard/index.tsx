@@ -9,7 +9,7 @@ function TypeCard(props: { title: string; children: JSX.Element }) {
       <div className="type-card__head">
         <h2 className="type-card__title">{title}</h2>
         <a href="javascript();" className="type-card__more">
-          更多<i className="iconfont"></i>
+          更多<i className="iconfont" dangerouslySetInnerHTML={{ __html: '&#xe605;' }}></i>
         </a>
       </div>
       <div className="type-card__body">{children}</div>

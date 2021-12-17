@@ -1,0 +1,14 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--color-hover-background);
+  &__content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1em;
+    & > * + * {
+      margin-top: 1.5em;
+    }
+  }
+}

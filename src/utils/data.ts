@@ -3,9 +3,11 @@ enum Navigation {
   My = '/my',
   Discover = '/',
   Category = '/categories',
+  BOOK = '/book/:id',
+  MORE = '/more/:type',
 }
 
-const nav = [
+const navData = [
   {
     to: Navigation.BookShelf,
     title: '我的书架',
@@ -32,4 +34,4 @@ const nav = [
   },
 ]
 
-export { Navigation, nav }
+export { Navigation, navData as nav }

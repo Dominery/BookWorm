@@ -1,17 +1,5 @@
 @import '../assets/styles/variables.scss';
 @import '../assets/styles/mixin.scss';
 .app {
-  @include coverArea;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  background-color: var(--color-hover-background);
-  &__main {
-    flex: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-  &__bottom {
-    height: 4em;
-  }
+  height: 100vh;
 }

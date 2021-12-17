@@ -6,7 +6,9 @@ import Book from './book/index'
 import CoverSwiper from './coverSwiper/index'
 import TabBar from './tabbar/index'
 import SearchBox from './searchBox/index'
-import { verticalBooks, booksWithoutDesc } from './book/bookGenerator'
+import { verticalBooks, booksWithoutDesc, booksWithDesc } from './book/bookGenerator'
+import Layout from './layout/index'
+import Header from './header/index'
 export {
   ToggleMenu,
   SideBarMenu,
@@ -18,4 +20,7 @@ export {
   Book,
   verticalBooks,
   booksWithoutDesc,
+  booksWithDesc,
+  Layout,
+  Header,
 }
