@@ -2,7 +2,7 @@ import React from 'react'
 
 import './index.scss'
 
-function FlipBook() {
+function BookFlip() {
   return (
     <div className="flip-book">
       <div className="flip-book__page"></div>
@@ -12,4 +12,4 @@ function FlipBook() {
   )
 }
 
-export default FlipBook
+export default BookFlip

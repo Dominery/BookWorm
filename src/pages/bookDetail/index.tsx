@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Header, Layout, BackIcon, FlipBook } from 'components/index'
+import { Header, Layout, BackIcon, BookFlip } from 'components/index'
 import { useBookDetail } from 'service/index'
 import BookIntroduction from './bookIntroduction/index'
 import CollapsibleLines from './collapsibleLines/index'
@@ -28,7 +28,7 @@ function BookDetail({ match }) {
           <RecommendCard books={data.recommend} />
         </>
       ) : (
-        <FlipBook />
+        <BookFlip />
       )}
     </Layout>
   )

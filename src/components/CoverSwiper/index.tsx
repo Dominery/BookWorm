@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import BookImage from '../bookImage/index'
+import BookImage from '../book/bookImage/index'
 import { useSequential } from 'utils/sequentialGenerator'
 
 import './index.scss'

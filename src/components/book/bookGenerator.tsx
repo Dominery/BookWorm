@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { shuffle } from 'utils/random'
 import { BookInfo, BOOK_DESC_CLASS } from './conf'
-import Book from './index'
+import Book from './bookLayout/index'
 
 function shuffleBooks(books: BookInfo[], limit: number) {
   return shuffle(books).slice(0, limit)

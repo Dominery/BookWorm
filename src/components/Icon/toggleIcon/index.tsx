@@ -6,7 +6,7 @@ interface IProp {
   className?: string
 }
 
-function ToggleMenu(props: IProp) {
+function ToggleIcon(props: IProp) {
   const { click, className = '' } = props
   return (
     <div className={`toggle-menu ${className}`} onClick={click}>
@@ -17,4 +17,4 @@ function ToggleMenu(props: IProp) {
   )
 }
 
-export default ToggleMenu
+export default ToggleIcon
