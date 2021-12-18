@@ -1,0 +1,31 @@
+@import '../../../assets/styles/mixin.scss';
+
+.collapsible-lines {
+  padding: 1em 2em 1em 1em;
+  background-color: var(--color-background);
+  position: relative;
+  cursor: pointer;
+  .iconfont {
+    position: absolute;
+    transform: rotate(90deg);
+    right: 1em;
+    bottom: 1em;
+    transition: transform 0.2s ease-in;
+  }
+  &--unfold {
+    .iconfont {
+      transform: rotate(270deg);
+    }
+    .collapsible-lines__content {
+      max-height: none;
+      display: block;
+    }
+  }
+  &__content {
+    @include multiline-ellipsis(4);
+    line-height: 1.2;
+    font-size: 1rem;
+    max-height: 4.8em;
+    letter-spacing: 0.15em;
+  }
+}

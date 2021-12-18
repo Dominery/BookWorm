@@ -1,0 +1,20 @@
+@import '../../../assets/styles/mixin.scss';
+@import '../../../assets/styles/variables.scss';
+.book-introduction {
+  position: relative;
+  padding: 3em 1em 1em;
+  margin: -1em -1em 0;
+  &__book {
+    position: relative;
+    color: white;
+  }
+}
+
+.scale-2 {
+  font-size: 1.5rem;
+}
+.overlay::before {
+  content: '';
+  @include coverArea();
+  background-color: $color-trans-8;
+}

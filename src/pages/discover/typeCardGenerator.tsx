@@ -1,6 +1,5 @@
 import React from 'react'
-import { TypeCard } from './component'
-import { booksWithoutDesc, verticalBooks, booksWithDesc } from 'components/index'
+import { booksWithoutDesc, verticalBooks, booksWithDesc, TypeCard } from 'components/index'
 
 const RULES = {
   RECENT_UPDATE: {

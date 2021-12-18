@@ -1,0 +1,15 @@
+.bottom-bar {
+  &__item {
+    font-size: 1.5rem;
+    text-align: center;
+    width: 50%;
+    line-height: 3em;
+    color: white;
+    &:first-child {
+      background-color: var(--color-theme-relative);
+    }
+    &:last-child {
+      background-color: var(--color-theme-opposite);
+    }
+  }
+}

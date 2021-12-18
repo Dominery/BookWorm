@@ -3,29 +3,31 @@
 .book {
   padding: 0.5em;
   display: flex;
-  cursor: pointer;
   &__img {
     height: 6em;
     width: 4.2em;
   }
   &__profile {
-    color: var(--color-text-light);
     margin-left: 1em;
+    font-size: 0.9rem;
+    overflow: hidden;
     * + * {
       margin-top: 0.4em;
+    }
+    > * {
+      @include single-ellipsis();
     }
   }
   &__title {
     font-size: 1.1rem;
-    color: var(--color-text);
     @include multiline-ellipsis(2);
     line-height: 1.2em;
     max-height: 2.4em;
   }
   &__desc {
     @include multiline-ellipsis(2);
-    line-height: 1.1em;
-    height: 2.2em;
+    line-height: 1em;
+    height: 2em;
   }
   &--vertical {
     flex-direction: column;
@@ -34,5 +36,9 @@
       margin-top: 0.4em;
       margin-left: 0;
     }
+  }
+  &--card {
+    margin: 0.2em 0.4em;
+    box-shadow: 2px 2px 5px var(--color-shadow);
   }
 }

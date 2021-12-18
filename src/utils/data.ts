@@ -1,9 +1,9 @@
 enum Navigation {
   BookShelf = '/bookshelf',
   My = '/my',
-  Discover = '/d',
+  Discover = '/',
   Category = '/categories',
-  BOOK = '/',
+  BOOK = '/book/:id',
   MORE = '/more/:type',
 }
 enum ICONS {

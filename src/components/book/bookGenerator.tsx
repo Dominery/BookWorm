@@ -1,64 +1,61 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { shuffle } from 'utils/random'
+import { BookInfo, BOOK_DESC_CLASS } from './conf'
 import Book from './index'
-interface BookInfo {
-  imgUrl: string
-  author: string
-  title: string
-  desc: string
-  categoryName: string
-  bookId: number
-  [prop: string]: string | number
-}
-const BOOK_NAME_CLASS = 'book__title'
-const BOOK_DESC_CLASS = 'book__desc'
+
 function shuffleBooks(books: BookInfo[], limit: number) {
   return shuffle(books).slice(0, limit)
 }
-function mapFunc(contentFunc: (book: BookInfo) => JSX.Element, className: string, vertical = false) {
-  return (book: BookInfo) => (
-    <Link to={`/book/${book.bookId}`} key={book.bookId} className={className}>
-      <Book imgUrl={book.imgUrl} vertical={vertical}>
-        {contentFunc(book)}
-      </Book>
-    </Link>
-  )
+function mapFunc(className: string, vertical = false) {
+  return (contentFunc?: (book: BookInfo) => JSX.Element, bookClass = '') =>
+    (book: BookInfo) =>
+      (
+        <Link to={`/book/${book.bookId}`} key={book.bookId} className={className}>
+          <Book imgUrl={book.imgUrl} vertical={vertical} title={book.title} className={bookClass}>
+            {contentFunc?.(book)}
+          </Book>
+        </Link>
+      )
 }
 function verticalBooks(books: BookInfo[], limit: number, className = '') {
-  return shuffleBooks(books, limit).map(
-    mapFunc((book) => <p className={BOOK_NAME_CLASS}>{book.title}</p>, className, true),
-  )
+  return shuffleBooks(books, limit).map(mapFunc(className, true)())
 }
 
 function booksWithDesc(books: BookInfo[], limit: number, className = '') {
   return shuffleBooks(books, limit).map(
-    mapFunc(
-      (book) => (
-        <>
-          <p className={BOOK_NAME_CLASS}>{book.title}</p>
-          <p>{book.author}</p>
-          <p className={BOOK_DESC_CLASS}>{book.desc}</p>
-        </>
-      ),
-      className,
-    ),
+    mapFunc(className)((book) => (
+      <>
+        <p>{book.author}</p>
+        <p className={BOOK_DESC_CLASS}>{book.desc}</p>
+      </>
+    )),
   )
 }
 
 function booksWithoutDesc(books: BookInfo[], limit: number, className = '') {
   return shuffleBooks(books, limit).map(
-    mapFunc(
+    mapFunc(className)((book) => (
+      <>
+        <p>{book.author}</p>
+        <p>{book.categoryName}</p>
+      </>
+    )),
+  )
+}
+
+function bookCards(books: BookInfo[], className = '') {
+  return books.map(
+    mapFunc(className)(
       (book) => (
         <>
-          <p className={BOOK_NAME_CLASS}>{book.title}</p>
           <p>{book.author}</p>
-          <p>{book.categoryName}</p>
+          <p>{book.word}</p>
         </>
       ),
-      className,
+      'book--card',
     ),
   )
 }
 
-export { verticalBooks, booksWithDesc, booksWithoutDesc }
+export { verticalBooks, booksWithDesc, booksWithoutDesc, bookCards }

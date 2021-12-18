@@ -2,7 +2,10 @@ $book-border: 0.5em;
 $book-color: white;
 
 .flip-book {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border: $book-border solid var(--color-theme);
   width: 8em;
   height: 4.5em;

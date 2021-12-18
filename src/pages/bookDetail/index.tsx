@@ -1,16 +1,35 @@
-import React from 'react'
-import { Header, Layout, BackIcon } from 'components/index'
+import React, { useEffect } from 'react'
+import { Header, Layout, BackIcon, FlipBook } from 'components/index'
+import { useBookDetail } from 'service/index'
+import BookIntroduction from './bookIntroduction/index'
+import CollapsibleLines from './collapsibleLines/index'
+import UpdateInfo from './updateInfo/index'
+import RecommendCard from './recommendCard/index'
+import BottomBar from './bootomBar/index'
 
 function BookDetail({ match }) {
-  console.log(match.params.id)
+  const { data, getData } = useBookDetail()
+  useEffect(() => {
+    getData()
+  }, [])
+  // console.log(match.params.id)
   const header = (
     <Header left={<BackIcon />}>
       <h2>书籍详情</h2>
     </Header>
   )
   return (
-    <Layout header={header}>
-      <></>
+    <Layout header={header} footer={<BottomBar />}>
+      {data ? (
+        <>
+          <BookIntroduction bookInfo={data} />
+          <CollapsibleLines lines={data.desc} />
+          <UpdateInfo chapterName={data.chapterName} time={data.time} />
+          <RecommendCard books={data.recommend} />
+        </>
+      ) : (
+        <FlipBook />
+      )}
     </Layout>
   )
 }

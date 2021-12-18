@@ -6,6 +6,8 @@
   --color-text: #333;
   --color-text-light: rgb(120, 120, 120);
   --color-theme: hsl(0deg 60% 50%);
+  --color-theme-relative: hsl(0deg 50% 60%);
+  --color-theme-opposite: hsl(180deg 50% 50%);
   --color-shadow: rgba(0, 0, 0, 0.1);
   --color-mask: rgba(0, 0, 0, 0.2);
   --color-darken-background: hsl(230deg 50% 98%);
@@ -29,6 +31,13 @@
 
 a {
   color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-size: inherit;
+  font-weight: normal;
 }
 
 @font-face {

@@ -15,7 +15,11 @@
   white-space: normal !important;
   word-wrap: break-word;
 }
-
+@mixin single-ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 @mixin scroll-shadow() {
   background: linear-gradient(var(--color-background) 15%, transparent 100%) 0 0/100% 100px local,
     radial-gradient(at 50% 0, rgba(0, 0, 0, 0.2), transparent 70%) 0 0/100% 25px scroll,

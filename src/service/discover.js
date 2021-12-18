@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { IMG_HOST } from 'api/conf'
+import { imgUrlAdapter } from './adapter'
 
 let bookData = [
   {
@@ -262,13 +262,6 @@ let bookData = [
     type: 'GUESS_FAVORITE',
   },
 ]
-
-function bookInfoAdapter(bookInfo) {
-  // eslint-disable-next-line no-unused-vars
-  const { coverImg, ...info } = bookInfo
-  info.imgUrl = IMG_HOST + coverImg
-  return info
-}
 function useDiscoverData() {
   const [data, setData] = useState([])
   const getData = () => {
@@ -277,7 +270,7 @@ function useDiscoverData() {
       return {
         categoryName,
         type,
-        bookList: bookList.map(bookInfoAdapter),
+        bookList: bookList.map(imgUrlAdapter),
       }
     })
     setData(newData)
