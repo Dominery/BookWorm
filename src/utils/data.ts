@@ -1,8 +1,8 @@
 enum Navigation {
   BookShelf = '/bookshelf',
   My = '/my',
-  Discover = '/',
-  Category = '/categories',
+  Discover = '/d',
+  Category = '/',
   BOOK = '/book/:id',
   MORE = '/more/:type',
 }
@@ -36,4 +36,67 @@ const navData = [
   },
 ]
 
-export { Navigation, navData as nav, ICONS }
+const categoryInfo = [
+  {
+    channelName: '男生',
+    channelId: 1,
+    categories: [
+      {
+        categoryId: 1,
+        categoryName: '玄幻小说',
+      },
+      {
+        categoryId: 2,
+        categoryName: '修真小说',
+      },
+      {
+        categoryId: 3,
+        categoryName: '都市小说',
+      },
+      {
+        categoryId: 5,
+        categoryName: '网游小说',
+      },
+      {
+        categoryId: 6,
+        categoryName: '科幻灵异',
+      },
+      {
+        categoryId: 7,
+        categoryName: '历史小说',
+      },
+      {
+        categoryId: 9,
+        categoryName: '其他小说',
+      },
+    ],
+  },
+  {
+    channelName: '女生',
+    channelId: 2,
+    categories: [
+      {
+        categoryId: 3,
+        categoryName: '都市小说',
+      },
+      {
+        categoryId: 6,
+        categoryName: '科幻灵异',
+      },
+      {
+        categoryId: 8,
+        categoryName: '言情小说',
+      },
+      {
+        categoryId: 10,
+        categoryName: '女生小说',
+      },
+      {
+        categoryId: 9,
+        categoryName: '其他小说',
+      },
+    ],
+  },
+]
+
+export { Navigation, navData as nav, ICONS, categoryInfo }

@@ -14,7 +14,7 @@ interface BookIntro {
 function BookIntroduction(props: { bookInfo: BookIntro }) {
   const { imgUrl, title, author, word, categoryName, state } = props.bookInfo
   return (
-    <div className="book-introduction overlay" style={{ background: `url(${imgUrl}) 0/cover` }}>
+    <div className="book-introduction overlay expand" style={{ background: `url(${imgUrl}) 0/cover` }}>
       <Book imgUrl={imgUrl} title={title} className="book-introduction__book scale-2">
         <>
           <p>作者: {author}</p>

@@ -7,7 +7,7 @@ function CollapsibleLines(props: { lines: string }) {
   const [unfold, setUnfold] = useState(false)
   return (
     <div
-      className={`collapsible-lines ${unfold ? '' : 'collapsible-lines--unfold'}`}
+      className={`collapsible-lines ${unfold ? 'collapsible-lines--unfold' : ''}`}
       onClick={() => setUnfold(!unfold)}
     >
       <p className="collapsible-lines__content">{lines}</p>

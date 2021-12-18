@@ -9,6 +9,8 @@ import Layout from './layout/index'
 import Header from './layout/header/index'
 import BackIcon from './Icon/backIcon/index'
 import TypeCard from './typeCard/index'
+import BookSlider from './bookSlider/index'
+import BookList from './book/bookList/index'
 export {
   ToggleIcon,
   BookFlip,
@@ -24,4 +26,6 @@ export {
   Header,
   BackIcon,
   TypeCard,
+  BookSlider,
+  BookList,
 }

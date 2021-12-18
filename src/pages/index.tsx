@@ -6,6 +6,7 @@ import Discover from './discover/index'
 import './index.scss'
 import { Navigation } from '../utils/data'
 import BookDetail from './bookDetail/index'
+import CategoryPage from './categoryPage/index'
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
           <Route path={Navigation.BookShelf} component={BookShelfPage} />
           <Route exact path={Navigation.Discover} component={Discover} />
           <Route path={Navigation.BOOK} component={BookDetail} />
+          <Route path={Navigation.Category} component={CategoryPage} />
         </Switch>
       </div>
     </Router>
