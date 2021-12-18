@@ -98,5 +98,4 @@ const categoryInfo = [
     ],
   },
 ]
-
 export { Navigation, navData as nav, ICONS, categoryInfo }

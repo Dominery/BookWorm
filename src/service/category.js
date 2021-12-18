@@ -73,7 +73,7 @@ function useCategoryData(categoryId) {
   const getData = (categoryId) => {
     setCategory(categoryId)
     const newData = bookData.map(imgUrlAdapter)
-    setData(newData)
+    setData([...newData])
   }
   return [data, getData, getMore]
 }

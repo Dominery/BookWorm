@@ -1,5 +1,6 @@
 .main-content {
   display: flex;
+  overflow-y: auto;
   &__content {
     flex: 1;
     background-color: var(--color-background);
