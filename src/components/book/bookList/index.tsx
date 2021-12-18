@@ -23,7 +23,7 @@ function BookList(props: { className?: string; books: BookInfo[]; onPullUp?: Pro
       onTouchEnd={touchEnd}
       onTouchStart={touchStart}
     >
-      {booksWithDesc(books, books.length, 'book-list__item')}
+      {booksWithDesc(books, 'book-list__item')}
       {onPullUp && loading && (
         <div className="book-list__item loading-container">
           <LoadingIcon />

@@ -3,30 +3,18 @@ import { booksWithoutDesc, verticalBooks, booksWithDesc, TypeCard } from 'compon
 
 const RULES = {
   RECENT_UPDATE: {
-    func: (title, bookList) => {
-      return (
-        <TypeCard title={title} key={title}>
-          <>{booksWithoutDesc(bookList, 4, 'width--50')}</>
-        </TypeCard>
-      )
+    func: (bookList: any[]) => {
+      return booksWithoutDesc(bookList.slice(0, 4), 'width--50')
     },
   },
   READ_MOST: {
-    func: (title, bookList) => {
-      return (
-        <TypeCard title={title} key={title}>
-          <>{verticalBooks(bookList, 8, 'width--25')}</>
-        </TypeCard>
-      )
+    func: (bookList: any[]) => {
+      return verticalBooks(bookList.slice(0, 8), 'width--25')
     },
   },
   GUESS_FAVORITE: {
-    func: (title, bookList) => {
-      return (
-        <TypeCard title={title} key={title}>
-          <>{booksWithDesc(bookList, bookList.length)}</>
-        </TypeCard>
-      )
+    func: (bookList: any[]) => {
+      return booksWithDesc(bookList.slice(0, 6))
     },
   },
 }
@@ -36,7 +24,11 @@ function typeCards(discoverData: any[]) {
     .filter((typeItem) => !!RULES[typeItem.type])
     .map((typeItem) => {
       const { type, categoryName, bookList } = typeItem
-      return RULES[type].func(categoryName, bookList)
+      return (
+        <TypeCard title={categoryName} key={categoryName}>
+          <>{RULES[type].func(bookList)}</>
+        </TypeCard>
+      )
     })
 }
 
