@@ -10,16 +10,20 @@ function MainContent(props: { className?: string }) {
   const [defaultChannel, defaultCategoryID] = getDefault()
   const [channel, setChannel] = useState(defaultChannel)
   const [categoryId, setCategoryId] = useState(defaultCategoryID)
-  const [data, getData, getMore] = useCategoryData()
+  const [data, getMore, getData] = useCategoryData()
   useEffect(() => {
     getData(categoryId)
   }, [])
 
   return (
     <div className={`main-content ${className}`}>
-      <SideBar categories={getCategories()} onClick={(categoryId) => setCategoryId(categoryId)} active={categoryId} />
+      <SideBar
+        categories={getCategories()}
+        onClick={(categoryId) => changeCategoryId(categoryId)}
+        active={categoryId}
+      />
       <div className="main-content__content">
-        {data && <BookList books={data} onPullUp={getMore} className="main-content__list" />}
+        {data && <BookList books={data} onPullUp={() => getMore(categoryId)} className="main-content__list" />}
         <ul className="main-content__channel">
           {categoryInfo.map((item) => (
             <li
@@ -42,6 +46,11 @@ function MainContent(props: { className?: string }) {
   function changeChannel(channelName: string) {
     setChannel(channelName)
     const categoryId = categoryInfo.find((item) => item.channelName === channelName).categories[0].categoryId
+    setCategoryId(categoryId)
+    getData(categoryId)
+  }
+  function changeCategoryId(categoryId: number) {
+    getData(categoryId)
     setCategoryId(categoryId)
   }
 }

@@ -26,7 +26,7 @@ function hashCode(str) {
   return hash
 }
 
-function proxy(func) {
+function cacheProxy(func) {
   const cache = {}
   return async function (...params) {
     const key = hashCode(params.reduce((pre, cur) => pre + JSON.stringify(cur), ''))
@@ -36,4 +36,20 @@ function proxy(func) {
   }
 }
 
-export { useImgLoad, proxy }
+function accessTimeProxy(func, limitMillSec: number) {
+  let lastTime = 0
+  return function run(...params) {
+    const now = Date.now()
+    if (now - lastTime > limitMillSec) {
+      lastTime = now
+      return func(...params)
+    }
+    return new Promise<any>((resolve, reject) => {
+      setTimeout(() => {
+        resolve(run(...params))
+      }, limitMillSec + lastTime - now)
+    })
+  }
+}
+
+export { useImgLoad, cacheProxy, accessTimeProxy }

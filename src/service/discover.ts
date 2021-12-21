@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { imgUrlAdapter } from './adapter'
-import { ajaxGet, ajaxGetProxy } from 'utils/request'
+import { ajaxGetProxy } from 'utils/request'
 import { DISCOVER_MORE_URL, DISCOVER_URL } from 'utils/conf'
 import { randomPick, shuffle } from 'utils/random'
 import { categoryInfo } from 'utils/data'
@@ -49,7 +49,7 @@ function useMoreBook(type): [any[], () => Promise<void>] {
   const [data, setData] = useState([])
   const [pageNum, setPage] = useState(1)
   const getMore = () => {
-    return ajaxGet(DISCOVER_MORE_URL, {
+    return ajaxGetProxy(DISCOVER_MORE_URL, {
       params: {
         pageNum,
         pageSize: 10,
@@ -59,7 +59,6 @@ function useMoreBook(type): [any[], () => Promise<void>] {
       timeout: 2000,
     }).then((getData) => {
       const newData = getData.list?.map(imgUrlAdapter)
-      console.log(newData)
       setData([...data, ...newData])
       setPage(pageNum + 1)
     })

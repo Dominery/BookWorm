@@ -11,7 +11,7 @@ function CategoryPage({ match }) {
   return (
     <Layout footer={<TabBar active={match.url} />} contentClass="column-flex">
       <>
-        {special && <BookSlider books={special} className="expand" />}
+        <BookSlider books={special} className="expand" />
         <MainContent className="flex-expand horizon-expand" />
       </>
     </Layout>
