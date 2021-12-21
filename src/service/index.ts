@@ -1,5 +1,5 @@
-import { getDiscover, useDiscoverData } from './discover'
-import { useBookDetail } from './bookDetail'
+import { getDiscover, useDiscoverData, useMoreBook } from './discover'
+import { useBookDetail, useRecommendMore } from './bookDetail'
 import { useSpecial, useCategoryData } from './category'
 
-export { getDiscover, useDiscoverData, useBookDetail, useSpecial, useCategoryData }
+export { getDiscover, useDiscoverData, useMoreBook, useBookDetail, useSpecial, useCategoryData, useRecommendMore }

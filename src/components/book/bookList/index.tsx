@@ -6,7 +6,7 @@ import { BookInfo } from '../conf'
 
 import './index.scss'
 
-function BookList(props: { className?: string; books: BookInfo[]; onPullUp?: Promise<void> }) {
+function BookList(props: { className?: string; books: BookInfo[]; onPullUp?: () => Promise<void> }) {
   const { className, books, onPullUp } = props
   const bookList = useRef()
   const [loading, setLoading] = useState(false)
@@ -38,9 +38,11 @@ function BookList(props: { className?: string; books: BookInfo[]; onPullUp?: Pro
     if (Math.abs(scrollTop + clientHeight - scrollHeight) >= distance) {
       return
     }
+    console.log('onPullUp')
     if (!loading) {
       setLoading(true)
-      onPullUp?.finally(() => {
+      onPullUp?.().finally(() => {
+        console.log('finally')
         setLoading(false)
       })
     }

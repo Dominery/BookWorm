@@ -25,7 +25,7 @@ function BookDetail({ match }) {
           <BookIntroduction bookInfo={data} />
           <CollapsibleLines lines={data.desc} />
           <UpdateInfo chapterName={data.chapterName} time={data.time} />
-          <RecommendCard books={data.recommend} />
+          <RecommendCard books={data.recommend} to="/book/more/2" />
         </>
       ) : (
         <BookFlip />

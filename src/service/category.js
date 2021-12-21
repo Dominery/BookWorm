@@ -67,8 +67,12 @@ function useCategoryData(categoryId) {
   const [data, setData] = useState([])
   const [category, setCategory] = useState(categoryId)
   const getMore = () => {
-    const newData = bookData.map(imgUrlAdapter)
-    setData([...data, ...newData])
+    return new Promise((resolve, reject) => {
+      const newData = bookData.map(imgUrlAdapter)
+      resolve([...data, ...newData])
+    }).then((data) => {
+      setData(data)
+    })
   }
   const getData = (categoryId) => {
     setCategory(categoryId)

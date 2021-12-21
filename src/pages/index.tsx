@@ -7,6 +7,8 @@ import './index.scss'
 import { Navigation } from '../utils/data'
 import BookDetail from './bookDetail/index'
 import CategoryPage from './categoryPage/index'
+import DiscoverMoreBook from './discoverMoreBook/index'
+import BookDetailMore from './bookDetailMore/index'
 
 export default function App() {
   return (
@@ -15,7 +17,9 @@ export default function App() {
         <Switch>
           <Route path={Navigation.BookShelf} component={BookShelfPage} />
           <Route exact path={Navigation.Discover} component={Discover} />
+          <Route path={Navigation.BookDetailMore} component={BookDetailMore} />
           <Route path={Navigation.BOOK} component={BookDetail} />
+          <Route path={Navigation.CategoryMore} component={DiscoverMoreBook} />
           <Route path={Navigation.Category} component={CategoryPage} />
         </Switch>
       </div>

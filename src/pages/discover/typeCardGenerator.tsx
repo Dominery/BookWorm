@@ -25,7 +25,7 @@ function typeCards(discoverData: any[]) {
     .map((typeItem) => {
       const { type, categoryName, bookList } = typeItem
       return (
-        <TypeCard title={categoryName} key={categoryName}>
+        <TypeCard title={categoryName} key={categoryName} to={`/discover/more/${typeItem.type}`}>
           <>{RULES[type].func(bookList)}</>
         </TypeCard>
       )

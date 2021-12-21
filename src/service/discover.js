@@ -259,7 +259,109 @@ let bookData = [
     ],
     categoryId: 1,
     categoryName: '猜你喜欢',
-    type: 'GUESS_FAVORITE',
+    type: 'CATEGORY',
+  },
+]
+let more = [
+  {
+    author: '叶辰萧初然',
+    bookId: 55500,
+    categoryName: '都市小说',
+    chapterStatus: 'END',
+    coverImg: '/file/group1/book/53637446-aee0-4d69-b2e7-1dfdaf30c249.jpg',
+    desc: ' 叶辰是所有人都瞧不起的上门女婿，但没有人知道他的真实身份却是顶尖家族的大少爷，那些瞧不起他的人，终究要跪在他的面前，诚惶诚恐的叫他一声爷！ ',
+    title: '上门龙婿（叶辰萧初然）',
+    word: '1365万字',
+  },
+  {
+    author: '不吃鱼的猫儿',
+    bookId: 54105,
+    categoryName: '都市小说',
+    chapterStatus: 'SERIALIZE',
+    coverImg: '/file/group1/book/ddaeba67-75d2-42ae-81cd-bd44d30c4871.jpg',
+    desc: ' 三年前，秦浩送外卖的时候，被豪车撞倒了，没想到反被车主逼着跪在车前忏悔，被豪车大灯照了一个晚上，秦浩的双眼就此瞎了。从此，他悲惨的人生开始了；为了替父还债，秦浩成了上门女婿，受尽歧视鄙夷，过着憋屈的生活；三年之后，秦浩睁开双眼，一道神芒闪过。 ',
+    title: '极品上门女婿（秦浩林若涵）',
+    word: '854万字',
+  },
+  {
+    author: '唐家三少',
+    bookId: 48772,
+    categoryName: '玄幻小说',
+    chapterStatus: 'SERIALIZE',
+    coverImg: '/file/group1/book/2fcef4e6-8a20-4ec7-bddf-b0a55c0bacb7.jpg',
+    desc: ' 一万年后，冰化了。　　斗罗联邦科考队在极北之地科考时发现了一个有着金银双色花纹的蛋，用仪器探察之后，发现里面居然有生命体征，赶忙将其带回研究所进行孵化。蛋孵化出来了，可孵出来的却是一个婴儿，和人类一模一样的婴儿，一个蛋生的孩子。 ',
+    title: '斗罗大陆4终极斗罗（斗罗大陆IV终极斗罗）',
+    word: '1079万字',
+  },
+  {
+    author: '唐家三少',
+    bookId: 35707,
+    categoryName: '玄幻小说',
+    chapterStatus: 'END',
+    coverImg: '/file/group1/book/d61fdbfe-58b3-4c52-9129-27c7bc5f9c0c.jpg',
+    desc: ' 唐门外门弟子唐三，因偷学内门绝学为唐门所不容，跳崖明志时却现没有死，反而以另外一个身份来到了另一个世界，一个属于武魂的世界，名叫斗罗大6。这里没有魔法，没有斗气，没有武术，却有神奇的武魂。这里的每个人，在自己六岁的时候，都会在武魂殿中令武魂觉醒。武魂有动物，有植物，有器物，武魂可以辅助人们的日常生活。而其中一些特别出色的武魂却可以用来修炼并进行战斗，这个职业，是斗罗大6上最为强大也是最荣耀的职业——魂师!当唐门暗器来到斗罗大6，当唐三武魂觉醒，他能否在这片武魂的世界再铸唐门的辉煌？他能否成为这个世界的主宰：神? ',
+    title: '斗罗大陆',
+    word: '322万字',
+  },
+  {
+    author: '唐家三少',
+    bookId: 31318,
+    categoryName: '玄幻小说',
+    chapterStatus: 'SERIALIZE',
+    coverImg: '/file/group1/book/f5fc281e-9f3f-49b9-931f-05ff62c23da0.jpg',
+    desc: ' 伴随着魂导科技的进步，斗罗大陆上的人类征服了海洋，又发现了两片大陆。魂兽也随着人类魂师的猎杀无度走向灭亡，沉睡无数年的魂兽之王在星斗大森林最后的净土苏醒，它要带领仅存的族人，向人类复仇！唐舞麟立志要成为一名强大的魂师，可当武魂觉醒时，苏醒的，却是……旷世之才，龙王之争，我们的龙王传说，将由此开始。 ',
+    title: '斗罗大陆3龙王传说',
+    word: '353万字',
+  },
+  {
+    author: '卖报小郎君',
+    bookId: 56931,
+    categoryName: '修真小说',
+    chapterStatus: 'SERIALIZE',
+    coverImg: '/file/group1/book/f619e329-5390-487d-94f9-aec455bded20.jpg',
+    desc: ' 这个世界，有儒；有道；有佛；有妖；有术士。警校毕业的许七安幽幽醒来，发现自己身处牢狱之中，三日后流放边陲.....他起初的目的只是自保，顺便在这个没有人权的社会里当个富家翁悠闲度日。......多年后，许七安回首前尘，身后是早已逝去的敌人和朋友，以及累累白骨。滚滚长江东逝水，浪花淘尽英雄，是非成败转头空。青山依旧在，几度夕阳红。PS：本书不悲剧！ ',
+    title: '大奉打更人',
+    word: '2376万字',
+  },
+  {
+    author: '天蚕土豆',
+    bookId: 34798,
+    categoryName: '玄幻小说',
+    chapterStatus: 'SERIALIZE',
+    coverImg: '/file/group1/book/aaed46d4-1499-4628-94a4-af9189002293.jpg',
+    desc: ' 天地为炉，万物为铜，阴阳为炭，造化为工。气运之争，蟒雀吞龙。究竟是蟒雀为尊，还是圣龙崛起，凌驾众生？这是气掌乾坤的世界，磅礴宏伟，一气可搬山，可倒海，可翻天，可掌阴阳乾坤。世间源气分九品，三品称玄，六品成天，九品号圣。吾有一口玄黄气，可吞天地日月… ',
+    title: '元尊',
+    word: '623万字',
+  },
+  {
+    author: '厌笔萧生',
+    bookId: 32019,
+    categoryName: '玄幻小说',
+    chapterStatus: 'SERIALIZE',
+    coverImg: '/file/group1/book/c574f9a8-a2ce-4f0e-964c-f5d18beef59f.jpg',
+    desc: ' 千万年前，李七夜栽下一株翠竹。八百万年前，李七夜养了一条鲤鱼。五百万年前，李七夜收养一个小女孩。今天，李七夜一觉醒来，翠竹修练成神灵，鲤鱼化作金龙，小女孩成为九界女帝。这是一个养成的故事，一个不死的人族小子养成了妖神、养成了仙兽、养成了女帝的故事。请关注作者的公众号“萧府军团”。 ',
+    title: '帝霸',
+    word: '2150万字',
+  },
+  {
+    author: '一起成功',
+    bookId: 52059,
+    categoryName: '都市小说',
+    chapterStatus: 'SERIALIZE',
+    coverImg: '/file/group1/book/03da42ef-0b29-4e83-9df1-d946bbee61bd.jpg',
+    desc: ' 窝囊废物的上门女婿叶凡，无意中得到太极经和生死石的传承，自此开始了不一样的人生，他医术救美，武道杀敌，不仅横扫他人的轻视和嘲笑，赢得娇妻的芳心，更是站到了这世界的巅峰，睥睨天下。 ',
+    title: '女总裁的上门女婿（王婿叶凡）',
+    word: '1612万字',
+  },
+  {
+    author: '鱼人二代',
+    bookId: 30769,
+    categoryName: '都市小说',
+    chapterStatus: 'SERIALIZE',
+    coverImg: '/file/group1/book/98c52a2f-b82e-46f8-9af8-b3de775f8a16.jpg',
+    desc: ' 一个大山里走出来的绝世高手，一块能预知未来的神秘玉佩……林逸是一名普通学生，不过，他还身负另外一个重任，那就是追校花！而且还是奉校花老爸之命！虽然林逸很不想跟这位难伺候的大小姐打交道，但是长辈之命难违抗，他不得不千里迢迢的转学到了松山市，给大小姐鞍前马后的当跟班……于是，史上最牛B的跟班出现了——大小姐的贴身高手！看这位跟班如何发家致富偷小姐，开始他奉旨泡妞牛X闪闪的人生……本书有点儿纯……也有点儿小暧昧…… ',
+    title: '校花的贴身高手',
+    word: '28361万字',
   },
 ]
 function useDiscoverData() {
@@ -281,8 +383,21 @@ function useDiscoverData() {
   }
 }
 
+function useMoreBook(type) {
+  const [data, setData] = useState([])
+  const getMore = () => {
+    return new Promise((resolve, reject) => {
+      const newData = more.map(imgUrlAdapter)
+      resolve([...data, ...newData])
+    }).then((data) => {
+      setData(data)
+    })
+  }
+  return [data, getMore]
+}
+
 function getDiscover() {
   return bookData
 }
 
-export { getDiscover, useDiscoverData }
+export { getDiscover, useDiscoverData, useMoreBook }

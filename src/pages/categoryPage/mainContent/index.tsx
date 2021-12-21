@@ -19,7 +19,7 @@ function MainContent(props: { className?: string }) {
     <div className={`main-content ${className}`}>
       <SideBar categories={getCategories()} onClick={(categoryId) => setCategoryId(categoryId)} active={categoryId} />
       <div className="main-content__content">
-        {data && <BookList books={data} className="main-content__list" />}
+        {data && <BookList books={data} onPullUp={getMore} className="main-content__list" />}
         <ul className="main-content__channel">
           {categoryInfo.map((item) => (
             <li

@@ -1,10 +1,11 @@
 enum Navigation {
   BookShelf = '/bookshelf',
   My = '/my',
-  Discover = '/d',
-  Category = '/',
-  BOOK = '/book/:id',
-  MORE = '/more/:type',
+  Discover = '/discover',
+  Category = '/category',
+  BOOK = '/',
+  CategoryMore = '/discover/more/:type',
+  BookDetailMore = '/book/more/:id',
 }
 enum ICONS {
   RIGHT_ARROW = '&#xe605;',
