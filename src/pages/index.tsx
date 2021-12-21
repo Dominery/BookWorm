@@ -9,6 +9,7 @@ import BookDetail from './bookDetail/index'
 import CategoryPage from './categoryPage/index'
 import DiscoverMoreBook from './discoverMoreBook/index'
 import BookDetailMore from './bookDetailMore/index'
+import Catalogue from './catalogue/index'
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
           <Route path={Navigation.BOOK} component={BookDetail} />
           <Route path={Navigation.CategoryMore} component={DiscoverMoreBook} />
           <Route path={Navigation.Category} component={CategoryPage} />
+          <Route path={Navigation.Catalogue} component={Catalogue} />
         </Switch>
       </div>
     </Router>

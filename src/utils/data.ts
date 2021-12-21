@@ -2,13 +2,16 @@ enum Navigation {
   BookShelf = '/bookshelf',
   My = '/my',
   Discover = '/discover',
-  Category = '/',
+  Category = '/category',
   BOOK = '/book/:id',
   CategoryMore = '/discover/more/:type',
   BookDetailMore = '/book/more/:id',
+  Catalogue = '/',
 }
 enum ICONS {
   RIGHT_ARROW = '&#xe605;',
+  SEQUENCE = '&#xe61f;',
+  INVERSE = '&#xe620;',
 }
 const navData = [
   {
