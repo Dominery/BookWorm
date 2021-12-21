@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useImgLoad } from 'utils/imgLoad'
+import { useImgLoad } from 'utils/proxy'
 
 interface IProp {
   src: string

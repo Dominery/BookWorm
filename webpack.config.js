@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+var babelpolyfill = require('babel-polyfill')
 
 const resolve = (dir) => path.resolve(__dirname, dir)
 
@@ -69,8 +70,7 @@ module.exports = {
       components: resolve('src/components'),
       utils: resolve('src/utils'),
       images: resolve('src/assets/images'),
-      service: resolve('src/service'),
-      api: resolve('src/utils/api')
+      service: resolve('src/service')
     },
   },
   plugins: [

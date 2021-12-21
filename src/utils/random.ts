@@ -16,4 +16,8 @@ function randomChoose<T>(list: T[], limit): T[] {
   return shuffle(list).slice(0, limit)
 }
 
-export { shuffle, randomChoose }
+function randomPick<T>(list: T[]): T {
+  return list[random(list.length)]
+}
+
+export { shuffle, randomChoose, randomPick }

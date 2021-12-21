@@ -1,4 +1,4 @@
-import { IMG_HOST } from 'api/conf'
+import { IMG_HOST } from 'utils/conf'
 function imgUrlAdapter(bookInfo) {
   // eslint-disable-next-line no-unused-vars
   const { coverImg, ...info } = bookInfo

@@ -1,4 +1,4 @@
-import { IMG_HOST } from './api/conf'
+import { IMG_HOST } from './conf'
 import { shuffle } from './random'
 import { Navigation, nav } from './data'
 

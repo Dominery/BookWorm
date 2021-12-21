@@ -5,7 +5,11 @@
         "module": "esnext",
         "sourceMap": true,
         "importHelpers": true,
-        "allowSyntheticDefaultImports": true
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": ".",
+        "paths": {
+            "tslib" : ["node_modules/tslib/tslib.d.ts"]
+        }   
     },
     "exclude": [
         "node_modules"

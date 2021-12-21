@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import { Layout, Header, BackIcon, BookList } from 'components/index'
 
 import './index.scss'
-import { useMoreBook } from '../../service/index'
+import { useMoreBook } from 'service/index'
 
 function DiscoverMoreBook({ match }) {
-  const [data, getMore] = useMoreBook(match)
+  const [data, getMore] = useMoreBook(match.params.type)
   const header = (
     <Header left={<BackIcon />}>
       <h1>更多</h1>
@@ -16,7 +16,7 @@ function DiscoverMoreBook({ match }) {
   }, [])
   return (
     <Layout header={header} contentClass="more-book__content">
-      {data && <BookList books={data} />}
+      {data && <BookList books={data} onPullUp={getMore} />}
     </Layout>
   )
 }

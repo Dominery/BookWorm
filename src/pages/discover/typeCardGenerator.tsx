@@ -12,7 +12,7 @@ const RULES = {
       return verticalBooks(bookList.slice(0, 8), 'width--25')
     },
   },
-  GUESS_FAVORITE: {
+  CATEGORY: {
     func: (bookList: any[]) => {
       return booksWithDesc(bookList.slice(0, 6))
     },

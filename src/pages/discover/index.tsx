@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
-import { CoverSwiper, SearchBox, Layout, TabBar, Header } from 'components/index'
+import { CoverSwiper, SearchBox, Layout, TabBar, Header, BookFlip } from 'components/index'
 
 import './index.scss'
 import { useDiscoverData } from 'service/index'
 import typeCards from './typeCardGenerator'
+import { randomChoose } from 'utils/random'
 
 function Discover({ match }) {
   const { data, getData } = useDiscoverData()
@@ -21,11 +22,15 @@ function Discover({ match }) {
       }
     >
       <>
-        <CoverSwiper />
-        {typeCards(data)}
+        <CoverSwiper items={randomChoose(chooseSwiperItems(data), 3)} />
+        {data.length === 0 ? <BookFlip /> : typeCards(data)}
       </>
     </Layout>
   )
+}
+
+function chooseSwiperItems(data: any[]) {
+  return data.find((item) => item.type === 'CATEGORY')?.bookList ?? []
 }
 
 export default Discover
