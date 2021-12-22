@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Header, Layout, BackIcon, BookFlip } from 'components/index'
 import { useBookDetail } from 'service/index'
 import BookIntroduction from './bookIntroduction/index'
@@ -8,10 +8,14 @@ import RecommendCard from './recommendCard/index'
 import BottomBar from './bootomBar/index'
 
 function BookDetail({ match }) {
-  const { data, getData } = useBookDetail()
+  const { id } = match.params
+  const [bookId, setBookId] = useState(id)
+  const [data, getData] = useBookDetail()
   useEffect(() => {
-    getData()
-  }, [])
+    getData(id).then(() => {
+      setBookId(id)
+    })
+  }, [match.params])
   // console.log(match.params.id)
   const header = (
     <Header left={<BackIcon />}>
@@ -20,12 +24,12 @@ function BookDetail({ match }) {
   )
   return (
     <Layout header={header} footer={<BottomBar />}>
-      {data ? (
+      {data && id === bookId ? (
         <>
           <BookIntroduction bookInfo={data} />
           <CollapsibleLines lines={data.desc} />
-          <UpdateInfo chapterName={data.chapterName} time={data.time} />
-          <RecommendCard books={data.recommend} to="/book/more/2" />
+          <UpdateInfo chapterName={data.chapterName} time={data.time} bookId={id} />
+          <RecommendCard books={data.recommend} to={`/book/more/${id}`} />
         </>
       ) : (
         <BookFlip />

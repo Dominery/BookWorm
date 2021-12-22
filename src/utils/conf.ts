@@ -5,5 +5,16 @@ const DISCOVER_MORE_URL = `${HOST}/app/open/api/category/discoveryAll`
 const CATEGORY_SPECIAL_URL = `${HOST}/app/open/api/book/getSpecialPage`
 const CATEGORY_URL = `${HOST}/app/open/api/book/getCategoryId`
 const CATALOGUE_URL = `${HOST}/app/open/api/chapter/getByBookId`
+const BOOK_DETAIL_URL = `${HOST}/app/open/api/book/getDetail`
+const BOOK_DETAIL_RECOMMEND_URL = `${HOST}/app/open/api/book/getRecommend`
 
-export { IMG_HOST, DISCOVER_URL, DISCOVER_MORE_URL, CATEGORY_SPECIAL_URL, CATEGORY_URL, CATALOGUE_URL }
+export {
+  IMG_HOST,
+  DISCOVER_URL,
+  DISCOVER_MORE_URL,
+  CATEGORY_SPECIAL_URL,
+  CATEGORY_URL,
+  CATALOGUE_URL,
+  BOOK_DETAIL_URL,
+  BOOK_DETAIL_RECOMMEND_URL,
+}

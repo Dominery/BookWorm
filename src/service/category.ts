@@ -41,7 +41,7 @@ function useCategoryData(): [any[], (categoryId: number) => Promise<void>, (cate
     return ajaxGetProxy(CATEGORY_URL, {
       params: {
         pageNum,
-        pageSize: 6,
+        pageSize: 10,
         categoryId,
       },
     }).then((getData) => {

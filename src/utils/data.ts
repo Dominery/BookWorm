@@ -6,7 +6,7 @@ enum Navigation {
   BOOK = '/book/:id',
   CategoryMore = '/discover/more/:type',
   BookDetailMore = '/book/more/:id',
-  Catalogue = '/',
+  Catalogue = '/catalogue/:id',
 }
 enum ICONS {
   RIGHT_ARROW = '&#xe605;',

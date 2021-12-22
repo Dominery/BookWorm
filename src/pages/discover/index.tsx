@@ -5,6 +5,7 @@ import './index.scss'
 import { useDiscoverData } from 'service/index'
 import typeCards from './typeCardGenerator'
 import { randomChoose } from 'utils/random'
+import { Navigation } from 'utils/data'
 
 function Discover({ match }) {
   const { data, getData } = useDiscoverData()
@@ -14,7 +15,7 @@ function Discover({ match }) {
   }, [])
   return (
     <Layout
-      footer={<TabBar active={match.url} />}
+      footer={<TabBar active={Navigation.Discover} />}
       header={
         <Header>
           <SearchBox />

@@ -14,7 +14,7 @@ function Catalogue({ match }) {
   const [catalogue, getCatalogue, setCatalogue] = useCatalogue()
   const [sequence, SetSequence] = useState(true)
   useEffect(() => {
-    getCatalogue(74585)
+    getCatalogue(match.params.id)
   })
   const header = (
     <Header left={<BackIcon />}>

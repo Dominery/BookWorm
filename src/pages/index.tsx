@@ -15,15 +15,14 @@ export default function App() {
   return (
     <Router>
       <div className="app">
-        <Switch>
-          <Route path={Navigation.BookShelf} component={BookShelfPage} />
-          <Route exact path={Navigation.Discover} component={Discover} />
-          <Route path={Navigation.BookDetailMore} component={BookDetailMore} />
-          <Route path={Navigation.BOOK} component={BookDetail} />
-          <Route path={Navigation.CategoryMore} component={DiscoverMoreBook} />
-          <Route path={Navigation.Category} component={CategoryPage} />
-          <Route path={Navigation.Catalogue} component={Catalogue} />
-        </Switch>
+        <Route path={Navigation.BookShelf} component={BookShelfPage} />
+        <Route exact path={Navigation.Discover} component={Discover} />
+        <Route path={Navigation.BookDetailMore} component={BookDetailMore} />
+        <Route exact path={Navigation.BOOK} component={BookDetail} />
+        <Route path={Navigation.CategoryMore} component={DiscoverMoreBook} />
+        <Route path={Navigation.Category} component={CategoryPage} />
+        <Route path={Navigation.Catalogue} component={Catalogue} />
+        <Route component={Discover} />
       </div>
     </Router>
   )
