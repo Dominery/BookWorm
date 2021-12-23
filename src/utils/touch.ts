@@ -40,7 +40,7 @@ function useTouch(touchFunc: {
   }
   return [onTouchStart, onTouchEnd]
 }
-function isPullUp(distance: number, target: React.MutableRefObject<undefined>) {
+function fromBottom(distance: number, target: React.MutableRefObject<undefined>) {
   const dom = target.current as any
   const { scrollHeight, clientHeight, scrollTop } = dom
   if (Math.abs(scrollTop + clientHeight - scrollHeight) >= distance) {
@@ -48,4 +48,13 @@ function isPullUp(distance: number, target: React.MutableRefObject<undefined>) {
   }
   return true
 }
-export { useTouch, isPullUp }
+
+function fromTop(distance: number, target: React.MutableRefObject<undefined>) {
+  const dom = target.current as any
+  const { scrollTop } = dom
+  if (scrollTop >= distance) {
+    return true
+  }
+  return false
+}
+export { useTouch, fromBottom, fromTop }

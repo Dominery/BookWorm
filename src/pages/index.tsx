@@ -21,7 +21,7 @@ export default function App() {
         <Route path={Navigation.BookDetailMore} component={BookDetailMore} />
         <Route exact path={Navigation.BOOK} component={BookDetail} />
         <Route path={Navigation.CategoryMore} component={DiscoverMoreBook} />
-        <Route path={Navigation.Category} component={CategoryPage} />
+        <Route exact path={Navigation.Category} component={CategoryPage} />
         <Route path={Navigation.Catalogue} component={Catalogue} />
         <Route path={Navigation.Chapter} component={Chapter} />
       </div>

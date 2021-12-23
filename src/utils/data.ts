@@ -1,8 +1,8 @@
 enum Navigation {
   BookShelf = '/bookshelf',
   My = '/my',
-  Discover = '/',
-  Category = '/category',
+  Discover = '/discover',
+  Category = '/',
   BOOK = '/book/:id',
   CategoryMore = '/discover/more/:type',
   BookDetailMore = '/book/more/:id',

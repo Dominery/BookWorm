@@ -9,6 +9,7 @@ import Layout from './layout/index'
 import Header from './layout/header/index'
 import BackIcon from './icon/backIcon/index'
 import LoadingIcon from './icon/loadingIcon/index'
+import BackTopIcon from './icon/backTopIcon/index'
 import TypeCard from './typeCard/index'
 import BookSlider from './bookSlider/index'
 import BookList from './book/bookList/index'
@@ -32,4 +33,5 @@ export {
   BookList,
   LoadingIcon,
   BookCatalogue,
+  BackTopIcon,
 }

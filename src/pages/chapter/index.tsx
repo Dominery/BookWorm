@@ -4,7 +4,7 @@ import BottomMenu from './bottomMenu/index'
 
 import './index.scss'
 import getChapters from 'service/chapter'
-import { isPullUp, useTouch } from 'utils/touch'
+import { fromBottom, useTouch } from 'utils/touch'
 import FontMenuItem from './bottomMenu/fontMenuItem/index'
 import ColorMenuItem from './bottomMenu/colorMenuItem/index'
 import { CHAPTER_COLORS, ICONS } from 'utils/data'
@@ -21,7 +21,7 @@ function Chapter({ match, location }) {
   const contentRef = useRef()
   const [touchStart, touchEnd] = useTouch({
     up: () => {
-      if (!isPullUp(100, contentRef)) {
+      if (!fromBottom(100, contentRef)) {
         return
       }
       requestChapter(currentChapterId, (chapters) => setChapterData([...chapterData, ...chapters]))

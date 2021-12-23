@@ -1,0 +1,13 @@
+.back-top-icon {
+  position: fixed;
+  bottom: 5em;
+  right: 2em;
+  display: inline-block;
+  width: 2em;
+  line-height: 2em;
+  border-radius: 50%;
+  background-color: var(--color-theme);
+  color: var(--color-background);
+  text-align: center;
+  transform: rotate(-90deg);
+}

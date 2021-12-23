@@ -1,16 +1,16 @@
 import { useState } from 'react'
 import { imgUrlAdapter } from './adapter'
-import { ajaxGet, ajaxGetProxy } from 'utils/request'
-import { CATEGORY_SPECIAL_URL, CATEGORY_URL } from 'utils/conf'
+import { ajaxGetProxy } from 'utils/request'
+import { CATEGORY_URL } from 'utils/conf'
 
 function useSpecial(): [any[], () => Promise<void>] {
   const [data, setData] = useState([])
   const getData = () => {
-    return ajaxGetProxy(CATEGORY_SPECIAL_URL, {
+    return ajaxGetProxy(CATEGORY_URL, {
       params: {
         pageNum: 1,
-        pageSize: 5,
-        id: 17,
+        pageSize: 10,
+        categoryId: 1,
       },
     }).then((getData) => {
       const newData = getData.list?.map(imgUrlAdapter)
