@@ -1,0 +1,53 @@
+@import '../../assets/styles/mixin.scss';
+
+.chapter {
+  @include coverArea();
+  &__content {
+    height: 100%;
+    overflow-y: auto;
+    padding: 1rem;
+  }
+  &--active {
+    .chapter__header,
+    .chapter__bottom {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  &__header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translateY(-100%);
+  }
+  &__bottom {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transform: translateY(100%);
+  }
+  &__header,
+  &__bottom {
+    background-color: var(--color-hover-background);
+    position: fixed;
+    opacity: 0;
+    transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+  }
+  &__back-icon {
+    color: var(--color-text);
+  }
+  &__name {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  &__paragraph {
+    font-size: 1.1em;
+    text-indent: 2em;
+    margin-top: 1em;
+    letter-spacing: 0.15em;
+  }
+}
+
+.catalogue-menuItem {
+  height: 70vh;
+}

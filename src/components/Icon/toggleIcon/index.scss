@@ -1,4 +1,4 @@
-.toggle-menu {
+.toggle-icon {
   height: 2em;
   width: 2em;
   font-size: 0.9rem;
@@ -15,9 +15,7 @@
     height: 1px;
     background-color: var(--color-text);
   }
-  &:hover {
-    background-color: var(--color-theme);
-    border-radius: 50%;
+  &--active {
     span {
       background-color: var(--color-background);
     }

@@ -10,6 +10,7 @@ import CategoryPage from './categoryPage/index'
 import DiscoverMoreBook from './discoverMoreBook/index'
 import BookDetailMore from './bookDetailMore/index'
 import Catalogue from './catalogue/index'
+import Chapter from './chapter/index'
 
 export default function App() {
   return (
@@ -22,7 +23,7 @@ export default function App() {
         <Route path={Navigation.CategoryMore} component={DiscoverMoreBook} />
         <Route path={Navigation.Category} component={CategoryPage} />
         <Route path={Navigation.Catalogue} component={Catalogue} />
-        <Route component={Discover} />
+        <Route path={Navigation.Chapter} component={Chapter} />
       </div>
     </Router>
   )

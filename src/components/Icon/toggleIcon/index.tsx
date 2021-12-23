@@ -9,7 +9,7 @@ interface IProp {
 function ToggleIcon(props: IProp) {
   const { click, className = '' } = props
   return (
-    <div className={`toggle-menu ${className}`} onClick={click}>
+    <div className={`toggle-icon ${className}`} onClick={click}>
       <span></span>
       <span></span>
       <span></span>

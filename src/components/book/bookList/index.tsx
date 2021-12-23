@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { useTouch } from 'utils/touch'
+import { isPullUp, useTouch } from 'utils/touch'
 import { LoadingIcon } from '../../index'
 import { booksWithDesc } from '../bookGenerator'
 import { BookInfo } from '../conf'
@@ -32,17 +32,12 @@ function BookList(props: { className?: string; books: BookInfo[]; onPullUp?: () 
     </div>
   )
   function pullUp() {
-    const distance = 10
-    const dom = bookList.current as any
-    const { scrollHeight, clientHeight, scrollTop } = dom
-    console.log('onPullUp')
-    if (Math.abs(scrollTop + clientHeight - scrollHeight) >= distance) {
+    if (!isPullUp(10, bookList)) {
       return
     }
     if (!loading) {
       setLoading(true)
       onPullUp?.().finally(() => {
-        console.log('finally')
         setLoading(false)
       })
     }

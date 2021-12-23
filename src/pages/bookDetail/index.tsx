@@ -5,7 +5,7 @@ import BookIntroduction from './bookIntroduction/index'
 import CollapsibleLines from './collapsibleLines/index'
 import UpdateInfo from './updateInfo/index'
 import RecommendCard from './recommendCard/index'
-import BottomBar from './bootomBar/index'
+import BottomBar from './bottomBar/index'
 
 function BookDetail({ match }) {
   const { id } = match.params

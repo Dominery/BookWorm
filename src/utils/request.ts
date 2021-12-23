@@ -17,12 +17,16 @@ async function ajaxRequest(url: string, data: any, ajaxFunc: (url: string, param
   }
 }
 
+const ajaxRequestProxy = accessTimeProxy(ajaxRequest, 1000 * 11)
+
 async function ajaxGet(url: string, params = {}) {
-  return await ajaxRequest(url, params, axios.get)
+  return await ajaxRequestProxy(url, params, axios.get)
 }
 
 async function ajaxPost(url: string, data = {}) {
-  return await ajaxRequest(url, data, axios.post)
+  return await ajaxRequestProxy(url, data, axios.post)
 }
-const ajaxGetProxy = cacheProxy(accessTimeProxy(ajaxGet, 1000 * 11))
-export { ajaxGet, ajaxPost, ajaxGetProxy }
+const ajaxGetProxy = cacheProxy(ajaxGet)
+const ajaxPostProxy = cacheProxy(ajaxPost)
+
+export { ajaxGet, ajaxPost, ajaxGetProxy, ajaxPostProxy }

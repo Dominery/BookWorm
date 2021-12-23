@@ -1,0 +1,18 @@
+.font-menuItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__size {
+    font-size: 1.3rem;
+    display: inline-block;
+    width: 3em;
+    text-align: center;
+    background-color: var(--color-background);
+  }
+  .iconfont {
+    font-size: 1.5rem;
+    &:first-child {
+      font-size: 1.2rem;
+    }
+  }
+}

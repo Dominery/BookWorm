@@ -12,6 +12,7 @@ import LoadingIcon from './icon/loadingIcon/index'
 import TypeCard from './typeCard/index'
 import BookSlider from './bookSlider/index'
 import BookList from './book/bookList/index'
+import BookCatalogue from './book/bookCatalogue/index'
 export {
   ToggleIcon,
   BookFlip,
@@ -30,4 +31,5 @@ export {
   BookSlider,
   BookList,
   LoadingIcon,
+  BookCatalogue,
 }

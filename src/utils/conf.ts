@@ -7,6 +7,7 @@ const CATEGORY_URL = `${HOST}/app/open/api/book/getCategoryId`
 const CATALOGUE_URL = `${HOST}/app/open/api/chapter/getByBookId`
 const BOOK_DETAIL_URL = `${HOST}/app/open/api/book/getDetail`
 const BOOK_DETAIL_RECOMMEND_URL = `${HOST}/app/open/api/book/getRecommend`
+const CHAPTER_URL = `${HOST}/app/open/api/chapter/get`
 
 export {
   IMG_HOST,
@@ -17,4 +18,5 @@ export {
   CATALOGUE_URL,
   BOOK_DETAIL_URL,
   BOOK_DETAIL_RECOMMEND_URL,
+  CHAPTER_URL,
 }

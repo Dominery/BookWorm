@@ -1,0 +1,16 @@
+.color-menuItem {
+  overflow-x: auto;
+  text-align: center;
+  &__color {
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    & + & {
+      margin-left: 2em;
+    }
+    &--active {
+      box-shadow: 1px 2px 5px var(--color-shadow);
+    }
+  }
+}

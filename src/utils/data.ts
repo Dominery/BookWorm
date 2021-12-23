@@ -1,17 +1,23 @@
 enum Navigation {
   BookShelf = '/bookshelf',
   My = '/my',
-  Discover = '/discover',
+  Discover = '/',
   Category = '/category',
   BOOK = '/book/:id',
   CategoryMore = '/discover/more/:type',
   BookDetailMore = '/book/more/:id',
   Catalogue = '/catalogue/:id',
+  Chapter = '/chapter/:id',
 }
 enum ICONS {
   RIGHT_ARROW = '&#xe605;',
   SEQUENCE = '&#xe61f;',
   INVERSE = '&#xe620;',
+  COLOR = '&#xe760;',
+  FONT_SIZE = '&#xe648;',
+  FONT_SIZE_UP = '&#xe65b;',
+  FONT_SIZE_DOWN = '&#xe65a;',
+  TOGGLE = '&#xe689;',
 }
 const navData = [
   {
@@ -102,4 +108,35 @@ const categoryInfo = [
     ],
   },
 ]
-export { Navigation, navData as nav, ICONS, categoryInfo }
+
+const CHAPTER_COLORS = [
+  {
+    background: 'white',
+    color: '#333',
+  },
+  {
+    background: '#f6f1e7',
+    color: '#333',
+  },
+  {
+    background: '#f6e8e6',
+    color: '#333',
+  },
+  {
+    background: '#464747',
+    color: '#808080',
+  },
+  {
+    background: '#e8f2f4',
+    color: '#333',
+  },
+  {
+    background: '#eaf3e9',
+    color: '#333',
+  },
+  {
+    background: '#f6f5ed',
+    color: '#333',
+  },
+]
+export { Navigation, navData as nav, ICONS, categoryInfo, CHAPTER_COLORS }

@@ -1,10 +1,9 @@
-.catalogue {
-  padding: 0;
+.book-catalogue {
+  height: 100%;
   &__item {
     padding: 1em;
     display: block;
     color: var(--color-text-light);
-    margin-top: 0;
   }
   &__info {
     height: 3em;
