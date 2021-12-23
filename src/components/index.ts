@@ -14,6 +14,8 @@ import TypeCard from './typeCard/index'
 import BookSlider from './bookSlider/index'
 import BookList from './book/bookList/index'
 import BookCatalogue from './book/bookCatalogue/index'
+import { BookInfo } from './book/conf'
+import Toast, { ToastContext } from './toast/index'
 export {
   ToggleIcon,
   BookFlip,
@@ -34,4 +36,7 @@ export {
   LoadingIcon,
   BookCatalogue,
   BackTopIcon,
+  BookInfo,
+  Toast,
+  ToastContext,
 }

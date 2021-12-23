@@ -23,7 +23,7 @@ function BookDetail({ match }) {
     </Header>
   )
   return (
-    <Layout header={header} footer={<BottomBar />}>
+    <Layout header={header} footer={<BottomBar book={data} />}>
       {data && id === bookId ? (
         <>
           <BookIntroduction bookInfo={data} />
