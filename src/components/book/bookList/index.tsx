@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import { accessFrequencyProxy } from 'utils/proxy'
 import { fromTop, fromBottom, useTouch } from 'utils/touch'
 import { BackTopIcon, LoadingIcon } from '../../index'
 import { booksWithDesc } from '../bookGenerator'
@@ -13,11 +14,6 @@ function BookList(props: { className?: string; books: BookInfo[]; onPullUp?: () 
   const [backTop, setBackTop] = useState(false)
   const [touchStart, touchEnd] = useTouch({
     up: pullUp,
-    bottom: () => {
-      if (!fromTop(500, bookList)) {
-        setBackTop(false)
-      }
-    },
   })
   return (
     <div
@@ -25,7 +21,7 @@ function BookList(props: { className?: string; books: BookInfo[]; onPullUp?: () 
       ref={bookList}
       onTouchEnd={touchEnd}
       onTouchStart={touchStart}
-      onScroll={() => console.log('scroll')}
+      onScroll={accessFrequencyProxy(scroll, 100)}
     >
       {booksWithDesc(books, 'book-list__item')}
       {onPullUp && loading && (
@@ -37,9 +33,6 @@ function BookList(props: { className?: string; books: BookInfo[]; onPullUp?: () 
     </div>
   )
   function pullUp() {
-    if (fromTop(500, bookList)) {
-      setBackTop(true)
-    }
     if (!fromBottom(10, bookList)) {
       return
     }
@@ -49,6 +42,14 @@ function BookList(props: { className?: string; books: BookInfo[]; onPullUp?: () 
       onPullUp?.().finally(() => {
         setLoading(false)
       })
+    }
+  }
+  function scroll() {
+    console.log('scroll')
+    if (fromTop(500, bookList)) {
+      setBackTop(true)
+    } else {
+      setBackTop(false)
     }
   }
   function toTop() {

@@ -52,4 +52,14 @@ function accessTimeProxy(func, limitMillSec: number) {
   }
 }
 
-export { useImgLoad, cacheProxy, accessTimeProxy }
+function accessFrequencyProxy(func: () => void, limitMillSec: number) {
+  let timer
+  return function () {
+    clearTimeout(timer)
+    timer = setTimeout(() => {
+      func()
+    }, limitMillSec)
+  }
+}
+
+export { useImgLoad, cacheProxy, accessTimeProxy, accessFrequencyProxy }
