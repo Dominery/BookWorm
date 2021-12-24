@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { TitleHeader, Layout, BackIcon, BookFlip } from 'components/index'
-import { useBookDetail } from 'service/index'
+import { getBookDetail } from 'service/index'
 import BookIntroduction from './bookIntroduction/index'
 import CollapsibleLines from './collapsibleLines/index'
 import UpdateInfo from './updateInfo/index'
 import RecommendCard from './recommendCard/index'
 import BottomBar from './bottomBar/index'
 
-function BookDetail({ match }) {
+function BookDetail({ match, location }) {
   const { id } = match.params
   const [bookId, setBookId] = useState(id)
-  const [data, getData] = useBookDetail()
+  const [detail, setDetail] = useState(null as any)
   useEffect(() => {
-    getData(id).then(() => {
+    const data = location?.state?.detail
+    if (data) {
+      setDetail(data)
+      return
+    }
+    getBookDetail(id).then((data) => {
+      setDetail(data)
       setBookId(id)
     })
   }, [match.params])
@@ -23,13 +29,13 @@ function BookDetail({ match }) {
     </TitleHeader>
   )
   return (
-    <Layout header={header} footer={<BottomBar book={data} />}>
-      {data && id === bookId ? (
+    <Layout header={header} footer={<BottomBar book={detail} />}>
+      {detail && id === bookId ? (
         <>
-          <BookIntroduction bookInfo={data} />
-          <CollapsibleLines lines={data.desc} />
-          <UpdateInfo chapterName={data.chapterName} time={data.time} bookId={id} />
-          <RecommendCard books={data.recommend} to={`/book/more/${id}`} />
+          <BookIntroduction bookInfo={detail} />
+          <CollapsibleLines lines={detail.desc} />
+          <UpdateInfo chapterName={detail.chapterName} time={detail.time} bookId={id} />
+          <RecommendCard books={detail.recommend} to={`/book/more/${id}`} />
         </>
       ) : (
         <BookFlip />

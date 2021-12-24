@@ -16,14 +16,32 @@ function getBookShelf(): BookInfo[] {
   return get(BOOKSHELF) ?? []
 }
 
-function addToBookShelf(book: BookInfo) {
+function isInBookShelf(book: BookInfo) {
+  if (!book?.bookId) return
   const bookshelf = getBookShelf()
   const index = bookshelf.findIndex((item) => item.bookId === book.bookId)
-  console.log(index)
-  if (index !== -1) return false
+  if (index !== -1) return true
+  return false
+}
+
+function findBookPos(book: BookInfo, bookshelf: BookInfo[]) {
+  return bookshelf.findIndex((item) => item.bookId === book.bookId)
+}
+
+function addToBookShelf(book: BookInfo) {
+  const bookshelf = getBookShelf()
+  if (findBookPos(book, bookshelf) !== -1) return false
   bookshelf.push(book)
   set(BOOKSHELF, bookshelf)
   return true
 }
 
-export { getBookShelf, addToBookShelf }
+function removeFromBookShelf(book: BookInfo) {
+  const bookshelf = getBookShelf()
+  const pos = findBookPos(book, bookshelf)
+  if (pos === -1) return
+  bookshelf.splice(pos, 1)
+  set(BOOKSHELF, bookshelf)
+}
+
+export { getBookShelf, addToBookShelf, isInBookShelf, removeFromBookShelf }

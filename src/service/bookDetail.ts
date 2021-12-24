@@ -3,22 +3,18 @@ import { BOOK_DETAIL_RECOMMEND_URL, BOOK_DETAIL_URL } from 'utils/conf'
 import { ajaxGetProxy } from 'utils/request'
 import { imgUrlAdapter, stateAdapter } from './adapter'
 
-function useBookDetail(): [any, (bookId: number) => Promise<void>] {
-  const [detail, setDetail] = useState()
-  const getDetail = (bookId) => {
-    return ajaxGetProxy(BOOK_DETAIL_URL, {
-      params: {
-        bookId,
-      },
-    }).then((requestData) => {
-      const { recommend, ...newData } = stateAdapter(imgUrlAdapter(requestData))
-      setDetail({
-        ...newData,
-        recommend: recommend.map(imgUrlAdapter),
-      })
-    })
-  }
-  return [detail, getDetail]
+function getBookDetail(bookId: number) {
+  return ajaxGetProxy(BOOK_DETAIL_URL, {
+    params: {
+      bookId,
+    },
+  }).then((requestData) => {
+    const { recommend, ...newData } = stateAdapter(imgUrlAdapter(requestData))
+    return {
+      ...newData,
+      recommend: recommend.map(imgUrlAdapter),
+    }
+  })
 }
 
 function useRecommendMore(bookId: number): () => Promise<any[]> {
@@ -38,4 +34,4 @@ function useRecommendMore(bookId: number): () => Promise<any[]> {
   }
 }
 
-export { useBookDetail, useRecommendMore }
+export { useRecommendMore, getBookDetail }

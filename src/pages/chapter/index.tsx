@@ -64,6 +64,7 @@ function Chapter({ match, location }) {
     </div>
   )
   function firstGet() {
+    setOnRequest(true)
     requestChapter(id, (chapters) => setChapterData(chapters))
       .catch(() => {
         setToast('加载失败，请下拉重试')
@@ -155,7 +156,7 @@ function generateParagraph(content: string, name: string) {
     <>
       <h2 className="chapter__name">{name}</h2>
       {content
-        .replace(' ', '')
+        .replace(/[^\S\n]/g, '')
         .replace('\n\n', '\n')
         .split('\n')
         .map((text, index) => (

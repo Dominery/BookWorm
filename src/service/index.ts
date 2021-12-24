@@ -1,12 +1,11 @@
 import { useMoreBook, getDiscover, chooseCategoryBookList } from './discover'
-import { useBookDetail, useRecommendMore } from './bookDetail'
+import { useRecommendMore, getBookDetail } from './bookDetail'
 import { useCategoryData, getSpecialBooks } from './category'
 import getCatalogue from './catalogue'
 import useSearch from './search'
 
 export {
   useMoreBook,
-  useBookDetail,
   useCategoryData,
   useRecommendMore,
   getCatalogue,
@@ -14,4 +13,5 @@ export {
   chooseCategoryBookList,
   getSpecialBooks,
   useSearch,
+  getBookDetail,
 }
