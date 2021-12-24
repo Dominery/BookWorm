@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Header, Layout, BackIcon, BookFlip } from 'components/index'
+import { TitleHeader, Layout, BackIcon, BookFlip } from 'components/index'
 import { useBookDetail } from 'service/index'
 import BookIntroduction from './bookIntroduction/index'
 import CollapsibleLines from './collapsibleLines/index'
@@ -18,9 +18,9 @@ function BookDetail({ match }) {
   }, [match.params])
   // console.log(match.params.id)
   const header = (
-    <Header left={<BackIcon />}>
+    <TitleHeader left={<BackIcon />}>
       <h2>书籍详情</h2>
-    </Header>
+    </TitleHeader>
   )
   return (
     <Layout header={header} footer={<BottomBar book={data} />}>

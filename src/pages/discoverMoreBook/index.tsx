@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react'
-import { Layout, Header, BackIcon, BookList, BookFlip } from 'components/index'
+import { Layout, TitleHeader, BackIcon, BookList, BookFlip } from 'components/index'
 
-import './index.scss'
 import { useMoreBook } from 'service/index'
 
 function DiscoverMoreBook({ match }) {
   const [data, getMore] = useMoreBook(match.params.type)
   const header = (
-    <Header left={<BackIcon />}>
+    <TitleHeader left={<BackIcon />}>
       <h1>更多</h1>
-    </Header>
+    </TitleHeader>
   )
   useEffect(() => {
     getMore()

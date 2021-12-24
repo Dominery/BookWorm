@@ -6,7 +6,8 @@ import TabBar from './layout/tabbar/index'
 import SearchBox from './searchBox/index'
 import { verticalBooks, booksWithoutDesc, booksWithDesc, bookCards } from './book/bookGenerator'
 import Layout from './layout/index'
-import Header from './layout/header/index'
+import TitleHeader from './layout/header/titleHeader/index'
+import BoxHeader from './layout/header/boxHeader/index'
 import BackIcon from './icon/backIcon/index'
 import LoadingIcon from './icon/loadingIcon/index'
 import BackTopIcon from './icon/backTopIcon/index'
@@ -16,6 +17,7 @@ import BookList from './book/bookList/index'
 import BookCatalogue from './book/bookCatalogue/index'
 import { BookInfo } from './book/conf'
 import Toast, { ToastContext } from './toast/index'
+import LinkedSearchBox from './searchBox/LinkedSearchBox/index'
 export {
   ToggleIcon,
   BookFlip,
@@ -28,7 +30,8 @@ export {
   booksWithDesc,
   bookCards,
   Layout,
-  Header,
+  TitleHeader,
+  BoxHeader,
   BackIcon,
   TypeCard,
   BookSlider,
@@ -39,4 +42,5 @@ export {
   BookInfo,
   Toast,
   ToastContext,
+  LinkedSearchBox,
 }

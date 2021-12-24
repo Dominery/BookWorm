@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { CoverSwiper, SearchBox, Layout, TabBar, Header, BookFlip } from 'components/index'
+import { CoverSwiper, Layout, TabBar, TitleHeader, BookFlip, LinkedSearchBox } from 'components/index'
 
 import './index.scss'
 import { getDiscover, chooseCategoryBookList } from 'service/index'
@@ -17,9 +17,9 @@ function Discover({ match }) {
     <Layout
       footer={<TabBar active={Navigation.Discover} />}
       header={
-        <Header>
-          <SearchBox />
-        </Header>
+        <TitleHeader>
+          <LinkedSearchBox to={Navigation.Search} />
+        </TitleHeader>
       }
     >
       <>

@@ -12,6 +12,7 @@ import BookDetailMore from './bookDetailMore/index'
 import Catalogue from './catalogue/index'
 import Chapter from './chapter/index'
 import { Toast, ToastContext } from 'components/index'
+import Search from './search/index'
 
 export default function App() {
   const [showToast, setShowToast] = useState(false)
@@ -28,6 +29,7 @@ export default function App() {
           <Route exact path={Navigation.Category} component={CategoryPage} />
           <Route path={Navigation.Catalogue} component={Catalogue} />
           <Route path={Navigation.Chapter} component={Chapter} />
+          <Route path={Navigation.Search} component={Search} />
         </div>
       </ToastContext.Provider>
       <Toast showToast={showToast} toast={toast} />

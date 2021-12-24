@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Layout, Header, BackIcon, BookCatalogue } from 'components/index'
+import { Layout, TitleHeader, BackIcon, BookCatalogue } from 'components/index'
 import { getCatalogue } from 'service/index'
 
 function Catalogue({ match }) {
@@ -12,9 +12,9 @@ function Catalogue({ match }) {
     })
   }, [])
   const header = (
-    <Header left={<BackIcon />}>
+    <TitleHeader left={<BackIcon />}>
       <p>书籍目录</p>
-    </Header>
+    </TitleHeader>
   )
   return (
     <Layout header={header} contentClass="horizon-expand">

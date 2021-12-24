@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { BackIcon, BookCatalogue, BookFlip, Header, ToastContext } from 'components/index'
+import { BackIcon, BookCatalogue, BookFlip, TitleHeader, ToastContext } from 'components/index'
 import BottomMenu from './bottomMenu/index'
 
 import './index.scss'
@@ -29,6 +29,9 @@ function Chapter({ match, location }) {
       requestChapter(currentChapterId, (chapters) => setChapterData([...chapterData, ...chapters]))
     },
     bottom: () => {
+      console.log('pull-down')
+      console.log(contentRef.current)
+      console.log(fromTop(10, contentRef))
       if (!fromTop(10, contentRef)) return
       firstGet()
     },
@@ -41,7 +44,7 @@ function Chapter({ match, location }) {
   }, [location])
   return (
     <div className={`chapter ${touch ? 'chapter--active' : ''}`}>
-      <Header left={<BackIcon className="chapter__back-icon" />} className="chapter__header" />
+      <TitleHeader left={<BackIcon className="chapter__back-icon" />} className="chapter__header" />
       {onRequest ? (
         <BookFlip />
       ) : (

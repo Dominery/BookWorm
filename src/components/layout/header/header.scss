@@ -11,6 +11,9 @@
     display: flex;
     justify-content: center;
   }
+}
+
+.title-header {
   &__left {
     width: 2em;
     margin-right: -2em;
@@ -19,5 +22,11 @@
     width: 4em;
     margin-right: -4em;
     transform: translateX(-4em);
+  }
+}
+
+.box-header {
+  > * + * {
+    margin-left: 1em;
   }
 }

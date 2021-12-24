@@ -1,13 +1,14 @@
 enum Navigation {
-  BookShelf = '/',
+  BookShelf = '/bookshelf',
   My = '/my',
-  Discover = '/discover',
+  Discover = '/',
   Category = '/category',
   BOOK = '/book/:id',
   CategoryMore = '/discover/more/:type',
   BookDetailMore = '/book/more/:id',
   Catalogue = '/catalogue/:id',
   Chapter = '/chapter/:id',
+  Search = '/search',
 }
 enum ICONS {
   RIGHT_ARROW = '&#xe605;',
@@ -18,6 +19,7 @@ enum ICONS {
   FONT_SIZE_UP = '&#xe65b;',
   FONT_SIZE_DOWN = '&#xe65a;',
   TOGGLE = '&#xe689;',
+  CANCEL = '&#xe698;',
 }
 const navData = [
   {

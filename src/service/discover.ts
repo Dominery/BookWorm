@@ -71,7 +71,7 @@ function getDiscover() {
     })
 }
 
-function chooseCategoryBookList(discoverData: any[]) {
+function chooseCategoryBookList(discoverData: any[]): any[] {
   return discoverData.find((item) => item.type === 'CATEGORY')?.bookList ?? []
 }
 const categoryIds = categoryInfo.flatMap((item) => item.categories).map((item) => item.categoryId)

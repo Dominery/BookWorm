@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, Layout, SearchBox, TabBar, verticalBooks } from 'components/index'
+import { TitleHeader, Layout, TabBar, verticalBooks, LinkedSearchBox } from 'components/index'
 
 import './index.scss'
 import { Navigation } from 'utils/data'
@@ -11,9 +11,9 @@ function BookShelfPage({ match }) {
     <Layout
       footer={<TabBar active={Navigation.BookShelf} />}
       header={
-        <Header>
-          <SearchBox />
-        </Header>
+        <TitleHeader>
+          <LinkedSearchBox to={Navigation.Search} />
+        </TitleHeader>
       }
     >
       <>{verticalBooks(books, 'bookshelf__book width--25')}</>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Layout, Header, BackIcon, BookList } from 'components/index'
+import { Layout, TitleHeader, BackIcon, BookList } from 'components/index'
 
 import { useRecommendMore } from '../../service/index'
 
@@ -7,9 +7,9 @@ function BookDetailMore({ match }) {
   const [books, setBooks] = useState([])
   const getMore = useRecommendMore(match?.params?.id)
   const header = (
-    <Header left={<BackIcon />}>
+    <TitleHeader left={<BackIcon />}>
       <h1>更多</h1>
-    </Header>
+    </TitleHeader>
   )
   useEffect(() => {
     addBooks()
