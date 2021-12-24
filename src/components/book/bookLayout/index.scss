@@ -4,8 +4,8 @@
   padding: 0.5em;
   display: flex;
   &__img {
-    height: 6em;
-    width: 4.2em;
+    height: calc(6em + 2vw);
+    width: calc(4.2em + 1.4vw);
   }
   &__profile {
     margin-left: 1em;

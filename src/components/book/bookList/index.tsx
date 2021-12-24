@@ -46,7 +46,7 @@ function BookList(props: { className?: string; books: BookInfo[]; onPullUp?: () 
   }
   function scroll() {
     console.log('scroll')
-    if (fromTop(500, bookList)) {
+    if (!fromTop(500, bookList)) {
       setBackTop(true)
     } else {
       setBackTop(false)

@@ -20,7 +20,7 @@ export default function App() {
     <Router>
       <ToastContext.Provider value={invokeToast}>
         <div className={`app ${showToast ? 'de-emphasized' : ''}`}>
-          <Route path={Navigation.BookShelf} component={BookShelfPage} />
+          <Route exact path={Navigation.BookShelf} component={BookShelfPage} />
           <Route exact path={Navigation.Discover} component={Discover} />
           <Route path={Navigation.BookDetailMore} component={BookDetailMore} />
           <Route exact path={Navigation.BOOK} component={BookDetail} />

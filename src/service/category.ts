@@ -2,22 +2,13 @@ import { useState } from 'react'
 import { imgUrlAdapter } from './adapter'
 import { ajaxGetProxy } from 'utils/request'
 import { CATEGORY_URL } from 'utils/conf'
+import { chooseCategoryBookList, getDiscover } from './discover'
+import { randomChoose } from 'utils/random'
 
-function useSpecial(): [any[], () => Promise<void>] {
-  const [data, setData] = useState([])
-  const getData = () => {
-    return ajaxGetProxy(CATEGORY_URL, {
-      params: {
-        pageNum: 1,
-        pageSize: 10,
-        categoryId: 1,
-      },
-    }).then((getData) => {
-      const newData = getData.list?.map(imgUrlAdapter)
-      setData(newData)
-    })
-  }
-  return [data, getData]
+function getSpecialBooks() {
+  return getDiscover().then((data) => {
+    return randomChoose(chooseCategoryBookList(data), 5)
+  })
 }
 
 function useCategoryData(): [any[], (categoryId: number) => Promise<void>, (categoryId: number) => Promise<void>] {
@@ -50,4 +41,4 @@ function useCategoryData(): [any[], (categoryId: number) => Promise<void>, (cate
   }
 }
 
-export { useSpecial, useCategoryData }
+export { useCategoryData, getSpecialBooks }

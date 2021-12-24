@@ -19,7 +19,9 @@ function getBookShelf(): BookInfo[] {
 function addToBookShelf(book: BookInfo) {
   const bookshelf = getBookShelf()
   const index = bookshelf.findIndex((item) => item.bookId === book.bookId)
-  if (index === -1) return false
+  console.log(index)
+  if (index !== -1) return false
+  bookshelf.push(book)
   set(BOOKSHELF, bookshelf)
   return true
 }

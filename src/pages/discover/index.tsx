@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { CoverSwiper, SearchBox, Layout, TabBar, Header, BookFlip } from 'components/index'
 
 import './index.scss'
-import { useDiscoverData } from 'service/index'
+import { getDiscover, chooseCategoryBookList } from 'service/index'
 import typeCards from './typeCardGenerator'
 import { randomChoose } from 'utils/random'
 import { Navigation } from 'utils/data'
 
 function Discover({ match }) {
-  const { data, getData } = useDiscoverData()
+  const [data, setData] = useState([])
   useEffect(() => {
-    getData()
+    getDiscover().then((requestData) => setData(requestData))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
@@ -23,15 +23,11 @@ function Discover({ match }) {
       }
     >
       <>
-        <CoverSwiper items={randomChoose(chooseSwiperItems(data), 3)} />
+        <CoverSwiper items={randomChoose(chooseCategoryBookList(data), 3)} />
         {data.length === 0 ? <BookFlip /> : typeCards(data)}
       </>
     </Layout>
   )
-}
-
-function chooseSwiperItems(data: any[]) {
-  return data.find((item) => item.type === 'CATEGORY')?.bookList ?? []
 }
 
 export default Discover

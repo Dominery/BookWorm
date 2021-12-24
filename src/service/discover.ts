@@ -43,6 +43,37 @@ function useDiscoverData() {
     getData,
   }
 }
+function getDiscover() {
+  return ajaxGetProxy(DISCOVER_URL)
+    .then((data) => {
+      const categories =
+        data.list
+          ?.filter((item) => item.type === 'CATEGORY')
+          .reduce((pre: [], cur) => {
+            return pre.concat(cur.bookList ?? [])
+          }, []) ?? []
+      const result: any[] = data.list?.filter((item) => item.type !== 'CATEGORY') ?? []
+      result.push({
+        categoryName: '猜你喜欢',
+        bookList: shuffle<any>(categories),
+        type: 'CATEGORY',
+      })
+      return result
+    })
+    .then((data) => {
+      return data.map((item) => {
+        const { bookList, ...other } = item
+        return {
+          ...other,
+          bookList: bookList.map(imgUrlAdapter),
+        }
+      })
+    })
+}
+
+function chooseCategoryBookList(discoverData: any[]) {
+  return discoverData.find((item) => item.type === 'CATEGORY')?.bookList ?? []
+}
 const categoryIds = categoryInfo.flatMap((item) => item.categories).map((item) => item.categoryId)
 
 function useMoreBook(type): [any[], () => Promise<void>] {
@@ -66,4 +97,4 @@ function useMoreBook(type): [any[], () => Promise<void>] {
   return [data, getMore]
 }
 
-export { useDiscoverData, useMoreBook }
+export { useMoreBook, getDiscover, chooseCategoryBookList }

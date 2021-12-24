@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Layout, TabBar, BookSlider } from 'components/index'
-import { useSpecial } from 'service/index'
+import { getSpecialBooks } from 'service/index'
 import MainContent from './mainContent/index'
 
 function CategoryPage({ match }) {
-  const [special, getSpecial] = useSpecial()
+  const [special, setSpecial] = useState([])
   useEffect(() => {
-    getSpecial()
+    getSpecialBooks().then((data) => setSpecial(data))
   }, [])
   return (
     <Layout footer={<TabBar active={match.url} />} contentClass="column-flex">

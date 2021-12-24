@@ -48,13 +48,18 @@ function fromBottom(distance: number, target: React.MutableRefObject<undefined>)
   }
   return true
 }
-
+/**
+ * 如果当前滑动位置到顶部距离小于distance返回true，否则false
+ * @param distance 到顶部距离
+ * @param target 滑动元素的ref
+ * @returns boolean
+ */
 function fromTop(distance: number, target: React.MutableRefObject<undefined>) {
   const dom = target.current as any
   const { scrollTop } = dom
   if (scrollTop >= distance) {
-    return true
+    return false
   }
-  return false
+  return true
 }
 export { useTouch, fromBottom, fromTop }

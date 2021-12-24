@@ -1,6 +1,15 @@
-import { useDiscoverData, useMoreBook } from './discover'
+import { useMoreBook, getDiscover, chooseCategoryBookList } from './discover'
 import { useBookDetail, useRecommendMore } from './bookDetail'
-import { useSpecial, useCategoryData } from './category'
+import { useCategoryData, getSpecialBooks } from './category'
 import getCatalogue from './catalogue'
 
-export { useDiscoverData, useMoreBook, useBookDetail, useSpecial, useCategoryData, useRecommendMore, getCatalogue }
+export {
+  useMoreBook,
+  useBookDetail,
+  useCategoryData,
+  useRecommendMore,
+  getCatalogue,
+  getDiscover,
+  chooseCategoryBookList,
+  getSpecialBooks,
+}

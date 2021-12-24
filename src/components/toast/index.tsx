@@ -7,7 +7,7 @@ function Toast(props: { showToast: boolean; toast: string }) {
   return <div className={`toast ${showToast ? '' : 'toast--hide'}`}>{toast}</div>
 }
 
-const ToastContext = React.createContext((toast: string, duration: number) => {})
+const ToastContext = React.createContext((toast: string, duration?: number) => {})
 
 export default Toast
 export { ToastContext }

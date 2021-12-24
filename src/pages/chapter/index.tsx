@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { BackIcon, BookCatalogue, BookFlip, Header } from 'components/index'
+import React, { useContext, useEffect, useRef, useState } from 'react'
+import { BackIcon, BookCatalogue, BookFlip, Header, ToastContext } from 'components/index'
 import BottomMenu from './bottomMenu/index'
 
 import './index.scss'
 import getChapters from 'service/chapter'
-import { fromBottom, useTouch } from 'utils/touch'
+import { fromBottom, fromTop, useTouch } from 'utils/touch'
 import FontMenuItem from './bottomMenu/fontMenuItem/index'
 import ColorMenuItem from './bottomMenu/colorMenuItem/index'
 import { CHAPTER_COLORS, ICONS } from 'utils/data'
@@ -19,25 +19,30 @@ function Chapter({ match, location }) {
   const [currentChapterId, setCurrentChapterId] = useState(id)
   const [chapterData, setChapterData] = useState([])
   const contentRef = useRef()
+  const setToast = useContext(ToastContext)
+  const [onRequest, setOnRequest] = useState(true)
   const [touchStart, touchEnd] = useTouch({
     up: () => {
-      if (!fromBottom(100, contentRef)) {
+      if (!fromBottom(200, contentRef)) {
         return
       }
       requestChapter(currentChapterId, (chapters) => setChapterData([...chapterData, ...chapters]))
+    },
+    bottom: () => {
+      if (!fromTop(10, contentRef)) return
+      firstGet()
     },
   })
 
   const [backgroundColor, setBackgroundColor] = useState(colors[0])
   const [fontSize, setFontSize] = useState(16)
   useEffect(() => {
-    console.log(location)
-    requestChapter(id, (chapters) => setChapterData(chapters))
+    firstGet()
   }, [location])
   return (
     <div className={`chapter ${touch ? 'chapter--active' : ''}`}>
       <Header left={<BackIcon className="chapter__back-icon" />} className="chapter__header" />
-      {chapterData.length === 0 ? (
+      {onRequest ? (
         <BookFlip />
       ) : (
         <div
@@ -55,6 +60,15 @@ function Chapter({ match, location }) {
       <BottomMenu className="chapter__bottom" menuItems={createMenuItems(bookId, chapterIdList)} />
     </div>
   )
+  function firstGet() {
+    requestChapter(id, (chapters) => setChapterData(chapters))
+      .catch(() => {
+        setToast('加载失败，请下拉重试')
+      })
+      .finally(() => {
+        setOnRequest(false)
+      })
+  }
 
   function requestChapter(currentId: string, process: (newChapter: any[]) => void) {
     const chapterIds = getRequestChapterIdList(currentId, chapterIdList)
@@ -62,7 +76,7 @@ function Chapter({ match, location }) {
       return
     }
     console.log(chapterIds)
-    getChapters(bookId, chapterIds, v).then((data) => {
+    return getChapters(bookId, chapterIds, v).then((data) => {
       process(data)
       const length = data.length
       let nextId = length === 0 ? null : getNextChapterId(currentId, chapterIdList, length)

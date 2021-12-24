@@ -1,20 +1,5 @@
 @import '../../assets/styles/variables.scss';
 
-.bookshelf {
-  margin-top: 2em;
-  margin-right: 2em;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  &__book,
-  &__placeholder {
-    display: inline-block;
-    width: 10em;
-    margin-left: 2em;
-    margin-bottom: 2em;
-    @media (min-width: $window-lg) {
-      margin-left: 3em;
-      margin-bottom: 3em;
-    }
-  }
+.bookshelf__book {
+  display: inline-block;
 }
