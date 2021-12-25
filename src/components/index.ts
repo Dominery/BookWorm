@@ -18,6 +18,7 @@ import BookCatalogue from './book/bookCatalogue/index'
 import { BookInfo } from './book/conf'
 import Toast, { ToastContext } from './toast/index'
 import LinkedSearchBox from './searchBox/LinkedSearchBox/index'
+import NewsTicker from './newsTicker/index'
 export {
   ToggleIcon,
   BookFlip,
@@ -43,4 +44,5 @@ export {
   Toast,
   ToastContext,
   LinkedSearchBox,
+  NewsTicker,
 }

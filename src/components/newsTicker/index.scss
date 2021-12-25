@@ -1,0 +1,30 @@
+.news-ticker {
+  background-color: var(--color-background);
+  height: 1.5em;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  z-index: var(--zIndex-top);
+  &__content {
+    animation: ticker 10s linear 0s infinite;
+    white-space: nowrap;
+    display: inline-block;
+  }
+  &__item {
+    display: inline-block;
+    white-space: nowrap;
+    color: var(--color-theme);
+    & + & {
+      margin-left: 4em;
+    }
+  }
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

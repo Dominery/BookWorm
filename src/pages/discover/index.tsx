@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { CoverSwiper, Layout, TabBar, TitleHeader, BookFlip, LinkedSearchBox } from 'components/index'
+import { CoverSwiper, Layout, TabBar, TitleHeader, BookFlip, LinkedSearchBox, NewsTicker } from 'components/index'
 
 import './index.scss'
 import { getDiscover, chooseCategoryBookList } from 'service/index'
@@ -21,8 +21,17 @@ function Discover({ match }) {
           <LinkedSearchBox to={Navigation.Search} />
         </TitleHeader>
       }
+      contentClass="content-top0"
     >
       <>
+        <NewsTicker
+          className="expand"
+          tickers={[
+            '接口限制访问,数据获取过慢请谅解',
+            '接口不提供搜索功能,搜索页面出现的是随机数据',
+            '个人页面尚未开发',
+          ]}
+        />
         <CoverSwiper items={randomChoose(chooseCategoryBookList(data), 3)} />
         {data.length === 0 ? <BookFlip /> : typeCards(data)}
       </>
