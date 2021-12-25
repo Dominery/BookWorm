@@ -40,26 +40,26 @@ function useTouch(touchFunc: {
   }
   return [onTouchStart, onTouchEnd]
 }
-function fromBottom(distance: number, target: React.MutableRefObject<undefined>) {
-  const dom = target.current as any
-  const { scrollHeight, clientHeight, scrollTop } = dom
-  if (Math.abs(scrollTop + clientHeight - scrollHeight) >= distance) {
-    return false
-  }
-  return true
-}
+
 /**
- * 如果当前滑动位置到顶部距离小于distance返回true，否则false
- * @param distance 到顶部距离
+ * 返回当前滑动位置到底部距离
  * @param target 滑动元素的ref
  * @returns boolean
  */
-function fromTop(distance: number, target: React.MutableRefObject<undefined>) {
+function fromBottom(target: React.MutableRefObject<any>) {
+  const dom = target.current as any
+  const { scrollHeight, clientHeight, scrollTop } = dom
+  return Math.abs(scrollTop + clientHeight - scrollHeight)
+}
+/**
+ * 返回当前滑动位置到顶部距离
+ * @param target 滑动元素的ref
+ * @returns boolean
+ */
+function fromTop(target: React.MutableRefObject<any>) {
   const dom = target.current as any
   const { scrollTop } = dom
-  if (scrollTop >= distance) {
-    return false
-  }
-  return true
+  return scrollTop
 }
+
 export { useTouch, fromBottom, fromTop }

@@ -33,7 +33,7 @@ function BookList(props: { className?: string; books: BookInfo[]; onPullUp?: () 
     </div>
   )
   function pullUp() {
-    if (!fromBottom(10, bookList)) {
+    if (fromBottom(bookList) > 10) {
       return
     }
 
@@ -46,7 +46,7 @@ function BookList(props: { className?: string; books: BookInfo[]; onPullUp?: () 
   }
   function scroll() {
     console.log('scroll')
-    if (!fromTop(500, bookList)) {
+    if (fromTop(bookList) > 500) {
       setBackTop(true)
     } else {
       setBackTop(false)

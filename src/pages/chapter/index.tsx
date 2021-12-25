@@ -23,16 +23,14 @@ function Chapter({ match, location }) {
   const [onRequest, setOnRequest] = useState(true)
   const [touchStart, touchEnd] = useTouch({
     up: () => {
-      if (!fromBottom(200, contentRef)) {
+      if (fromBottom(contentRef) > 300) {
         return
       }
       requestChapter(currentChapterId, (chapters) => setChapterData([...chapterData, ...chapters]))
     },
     bottom: () => {
       console.log('pull-down')
-      console.log(contentRef.current)
-      console.log(fromTop(10, contentRef))
-      if (!fromTop(10, contentRef)) return
+      if (fromTop(contentRef) > 10) return
       firstGet()
     },
   })

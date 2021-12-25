@@ -1,5 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { CoverSwiper, Layout, TabBar, TitleHeader, BookFlip, LinkedSearchBox, NewsTicker } from 'components/index'
+import React, { useContext, useEffect, useRef, useState } from 'react'
+import {
+  CoverSwiper,
+  Layout,
+  TabBar,
+  TitleHeader,
+  BookFlip,
+  LinkedSearchBox,
+  NewsTicker,
+  ToastContext,
+} from 'components/index'
 
 import './index.scss'
 import { getDiscover, chooseCategoryBookList } from 'service/index'
@@ -13,16 +22,17 @@ function Discover({ match }) {
   const [data, setData] = useState([])
   const [onRequest, getData] = useOnRequest(getDiscover)
   const scrollRef = useRef()
+  const setToast = useContext(ToastContext)
   const [touchStart, touchEnd] = useTouch({
     bottom: () => {
-      if (!fromTop(10, scrollRef)) {
+      if (fromTop(scrollRef) > 10) {
         return
       }
-      console.log('pulldown')
+      refresh()
     },
   })
   useEffect(() => {
-    getData().then((requestData) => setData(requestData))
+    refresh()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
@@ -52,6 +62,14 @@ function Discover({ match }) {
       </>
     </Layout>
   )
+
+  function refresh() {
+    getData()
+      .then((requestData) => setData(requestData))
+      .catch(() => {
+        setToast('加载失败，请下拉刷新')
+      })
+  }
 }
 
 export default Discover
