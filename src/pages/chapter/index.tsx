@@ -8,6 +8,7 @@ import { fromBottom, fromTop, useTouch } from 'utils/touch'
 import FontMenuItem from './bottomMenu/fontMenuItem/index'
 import ColorMenuItem from './bottomMenu/colorMenuItem/index'
 import { CHAPTER_COLORS, ICONS } from 'utils/data'
+import { useOnRequest } from 'utils/request'
 
 const colors = CHAPTER_COLORS.map((item) => item.background)
 
@@ -20,7 +21,7 @@ function Chapter({ match, location }) {
   const [chapterData, setChapterData] = useState([])
   const contentRef = useRef()
   const setToast = useContext(ToastContext)
-  const [onRequest, setOnRequest] = useState(true)
+  const [onRequest, request] = useOnRequest(() => requestChapter(id, (chapters) => setChapterData(chapters)))
   const [touchStart, touchEnd] = useTouch({
     up: () => {
       if (fromBottom(contentRef) > 300) {
@@ -31,14 +32,18 @@ function Chapter({ match, location }) {
     bottom: () => {
       console.log('pull-down')
       if (fromTop(contentRef) > 10) return
-      firstGet()
+      request().catch(() => {
+        setToast('重新加载失败,您可以再次尝试或重新进入', 2000)
+      })
     },
   })
 
   const [backgroundColor, setBackgroundColor] = useState(colors[0])
   const [fontSize, setFontSize] = useState(16)
   useEffect(() => {
-    firstGet()
+    request().catch(() => {
+      setToast('加载失败，请下拉重试', 2000)
+    })
   }, [location])
   return (
     <div className={`chapter ${touch ? 'chapter--active' : ''}`}>
@@ -61,16 +66,6 @@ function Chapter({ match, location }) {
       <BottomMenu className="chapter__bottom" menuItems={createMenuItems(bookId, chapterIdList)} />
     </div>
   )
-  function firstGet() {
-    setOnRequest(true)
-    requestChapter(id, (chapters) => setChapterData(chapters))
-      .catch(() => {
-        setToast('加载失败，请下拉重试')
-      })
-      .finally(() => {
-        setOnRequest(false)
-      })
-  }
 
   function requestChapter(currentId: string, process: (newChapter: any[]) => void) {
     const chapterIds = getRequestChapterIdList(currentId, chapterIdList)
