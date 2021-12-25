@@ -1,12 +1,25 @@
 import React from 'react'
 
 import './index.scss'
-function Layout(props: { header?: JSX.Element; footer?: JSX.Element; children: JSX.Element; contentClass?: string }) {
-  const { header, footer, children, contentClass = '' } = props
+function Layout(props: {
+  header?: JSX.Element
+  footer?: JSX.Element
+  children: JSX.Element
+  contentClass?: string
+  contentRef?: React.MutableRefObject<any>
+  onTouchStart?: (e: React.TouchEvent<HTMLDivElement>) => void
+  onTouchEnd?: (e: React.TouchEvent<HTMLDivElement>) => void
+}) {
+  const { header, footer, children, contentClass = '', contentRef, ...attrs } = props
+  if (contentRef) {
+    ;(attrs as any).ref = contentRef
+  }
   return (
     <div className="layout">
       {header}
-      <main className={`layout__content ${contentClass}`}>{children}</main>
+      <main {...attrs} className={`layout__content ${contentClass}`}>
+        {children}
+      </main>
       {footer}
     </div>
   )

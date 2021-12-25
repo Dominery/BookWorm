@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { CoverSwiper, Layout, TabBar, TitleHeader, BookFlip, LinkedSearchBox, NewsTicker } from 'components/index'
 
 import './index.scss'
@@ -6,11 +6,23 @@ import { getDiscover, chooseCategoryBookList } from 'service/index'
 import typeCards from './typeCardGenerator'
 import { randomChoose } from 'utils/random'
 import { Navigation } from 'utils/data'
+import { useOnRequest } from 'utils/request'
+import { fromTop, useTouch } from 'utils/touch'
 
 function Discover({ match }) {
   const [data, setData] = useState([])
+  const [onRequest, getData] = useOnRequest(getDiscover)
+  const scrollRef = useRef()
+  const [touchStart, touchEnd] = useTouch({
+    bottom: () => {
+      if (!fromTop(10, scrollRef)) {
+        return
+      }
+      console.log('pulldown')
+    },
+  })
   useEffect(() => {
-    getDiscover().then((requestData) => setData(requestData))
+    getData().then((requestData) => setData(requestData))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
@@ -21,7 +33,10 @@ function Discover({ match }) {
           <LinkedSearchBox to={Navigation.Search} />
         </TitleHeader>
       }
-      contentClass="content-top0"
+      contentClass="padding-top0"
+      contentRef={scrollRef}
+      onTouchStart={touchStart}
+      onTouchEnd={touchEnd}
     >
       <>
         <NewsTicker
@@ -33,7 +48,7 @@ function Discover({ match }) {
           ]}
         />
         <CoverSwiper items={randomChoose(chooseCategoryBookList(data), 3)} />
-        {data.length === 0 ? <BookFlip /> : typeCards(data)}
+        {onRequest ? <BookFlip /> : typeCards(data)}
       </>
     </Layout>
   )

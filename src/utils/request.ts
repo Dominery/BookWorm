@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { useState } from 'react'
 import { accessTimeProxy, cacheProxy } from './proxy'
 
 function resHandler(res) {
@@ -29,4 +30,15 @@ async function ajaxPost(url: string, data = {}) {
 const ajaxGetProxy = cacheProxy(ajaxGet)
 const ajaxPostProxy = cacheProxy(ajaxPost)
 
-export { ajaxGet, ajaxPost, ajaxGetProxy, ajaxPostProxy }
+function useOnRequest(requestFunc: (...params) => Promise<any>): [boolean, (...params: any[]) => Promise<any>] {
+  const [onRequest, setRequest] = useState(false)
+  const request = (...params) => {
+    setRequest(true)
+    return requestFunc(...params).finally(() => {
+      setRequest(false)
+    })
+  }
+  return [onRequest, request]
+}
+
+export { ajaxGet, ajaxPost, ajaxGetProxy, ajaxPostProxy, useOnRequest }

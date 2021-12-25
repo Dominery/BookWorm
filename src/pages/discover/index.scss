@@ -1,19 +1,9 @@
 @import '../../assets/styles/mixin.scss';
 
 .discover {
-  display: flex;
-  flex-direction: column;
   height: 100%;
-  .header {
-    padding: 1em;
-    background-color: var(--color-theme);
-  }
-  .content {
-    flex: 1;
-    padding: 1em 1em 0;
-    overflow-y: auto;
-  }
-  .content > * {
-    margin-bottom: 2em;
+  overflow-y: auto;
+  & > * + * {
+    margin-top: 2em;
   }
 }
