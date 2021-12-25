@@ -36,7 +36,7 @@ function createSlideItem(books: BookInfo[], active: number) {
         <p className="book-slider-item__subInfo">{book.categoryName}</p>
         <h2 className="book-slider-item__title">{book.title}</h2>
         <p className="book-slider-item__description">{book.desc}</p>
-        <Link to={'#'}>了解更多</Link>
+        <Link to={`/book/${book.bookId}`}>了解更多</Link>
       </div>
       <BookImage src={book.imgUrl} className="book-slider-item__img" />
     </div>
