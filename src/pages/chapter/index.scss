@@ -46,6 +46,9 @@
     margin-top: 1em;
     letter-spacing: 0.15em;
   }
+  section + section {
+    margin-top: 2em;
+  }
 }
 
 .catalogue-menuItem {

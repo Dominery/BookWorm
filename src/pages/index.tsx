@@ -30,6 +30,7 @@ export default function App() {
           <Route path={Navigation.Catalogue} component={Catalogue} />
           <Route path={Navigation.Chapter} component={Chapter} />
           <Route path={Navigation.Search} component={Search} />
+          <Route exact path={'/index.html'} component={Discover} />
         </div>
       </ToastContext.Provider>
       <Toast showToast={showToast} toast={toast} />
