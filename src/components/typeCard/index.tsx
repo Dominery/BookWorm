@@ -4,13 +4,18 @@ import { ICONS } from 'utils/data'
 
 import './index.scss'
 
-function TypeCard(props: { title: string; children: JSX.Element; to?: string }) {
-  const { title, children, to } = props
+function TypeCard(props: {
+  title: string
+  children: JSX.Element
+  pathname?: string
+  state?: { from: string; params: string | number }
+}) {
+  const { title, children, pathname = '#', state } = props
   return (
     <div className="type-card">
       <div className="type-card__head">
         <h2 className="type-card__title">{title}</h2>
-        <Link to={to} className="type-card__more">
+        <Link to={{ pathname, state }} className="type-card__more">
           更多<i className="iconfont" dangerouslySetInnerHTML={{ __html: ICONS.RIGHT_ARROW }}></i>
         </Link>
       </div>

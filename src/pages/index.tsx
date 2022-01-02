@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import BookShelfPage from './bookshelf/index'
 import Discover from './discover/index'
 
@@ -7,12 +7,11 @@ import './index.scss'
 import { Navigation } from '../utils/data'
 import BookDetail from './bookDetail/index'
 import CategoryPage from './categoryPage/index'
-import DiscoverMoreBook from './discoverMoreBook/index'
-import BookDetailMore from './bookDetailMore/index'
 import Catalogue from './catalogue/index'
 import Chapter from './chapter/index'
 import { Toast, ToastContext } from 'components/index'
 import Search from './search/index'
+import BookMore from './bookMore/index'
 
 export default function App() {
   const [showToast, setShowToast] = useState(false)
@@ -23,13 +22,12 @@ export default function App() {
         <div className={`app ${showToast ? 'de-emphasized' : ''}`}>
           <Route exact path={Navigation.BookShelf} component={BookShelfPage} />
           <Route exact path={Navigation.Discover} component={Discover} />
-          <Route path={Navigation.BookDetailMore} component={BookDetailMore} />
           <Route exact path={Navigation.BOOK} component={BookDetail} />
-          <Route path={Navigation.CategoryMore} component={DiscoverMoreBook} />
           <Route exact path={Navigation.Category} component={CategoryPage} />
           <Route path={Navigation.Catalogue} component={Catalogue} />
           <Route path={Navigation.Chapter} component={Chapter} />
           <Route path={Navigation.Search} component={Search} />
+          <Route path={Navigation.MoreBook} component={BookMore} />
           <Route exact path={'/index.html'} component={Discover} />
         </div>
       </ToastContext.Provider>

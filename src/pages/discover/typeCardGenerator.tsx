@@ -1,5 +1,6 @@
 import React from 'react'
 import { booksWithoutDesc, verticalBooks, booksWithDesc, TypeCard } from 'components/index'
+import { Navigation } from 'utils/data'
 
 const RULES = {
   RECENT_UPDATE: {
@@ -25,7 +26,12 @@ function typeCards(discoverData: any[]) {
     .map((typeItem) => {
       const { type, categoryName, bookList } = typeItem
       return (
-        <TypeCard title={categoryName} key={categoryName} to={`/discover/more/${typeItem.type}`}>
+        <TypeCard
+          title={categoryName}
+          key={categoryName}
+          pathname={Navigation.MoreBook}
+          state={{ params: typeItem.type, from: Navigation.Discover }}
+        >
           <>{RULES[type].func(bookList)}</>
         </TypeCard>
       )

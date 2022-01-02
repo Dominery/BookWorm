@@ -76,10 +76,8 @@ function chooseCategoryBookList(discoverData: any[]): any[] {
 }
 const categoryIds = categoryInfo.flatMap((item) => item.categories).map((item) => item.categoryId)
 
-function useMoreBook(type): [any[], () => Promise<void>] {
-  const [data, setData] = useState([])
-  const [pageNum, setPage] = useState(1)
-  const getMore = () => {
+function getMoreBook(type: string): (pageNum: number) => Promise<any[]> {
+  return (pageNum: number) => {
     return ajaxGetProxy(DISCOVER_MORE_URL, {
       params: {
         pageNum,
@@ -90,11 +88,9 @@ function useMoreBook(type): [any[], () => Promise<void>] {
       timeout: 2000,
     }).then((getData) => {
       const newData = getData.list?.map(imgUrlAdapter)
-      setData([...data, ...newData])
-      setPage(pageNum + 1)
+      return newData
     })
   }
-  return [data, getMore]
 }
 
-export { useMoreBook, getDiscover, chooseCategoryBookList }
+export { getMoreBook, getDiscover, chooseCategoryBookList }

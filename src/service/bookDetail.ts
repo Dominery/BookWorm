@@ -17,9 +17,8 @@ function getBookDetail(bookId: number) {
   })
 }
 
-function useRecommendMore(bookId: number): () => Promise<any[]> {
-  const [pageNum, setPage] = useState(1)
-  return () => {
+function getRecommendMore(bookId: number): (pageNum: number) => Promise<any[]> {
+  return (pageNum: number) => {
     return ajaxGetProxy(BOOK_DETAIL_RECOMMEND_URL, {
       params: {
         pageNum,
@@ -28,10 +27,9 @@ function useRecommendMore(bookId: number): () => Promise<any[]> {
       },
     }).then((getData) => {
       const newData = getData.list?.map(imgUrlAdapter)
-      setPage(pageNum + 1)
       return newData
     })
   }
 }
 
-export { useRecommendMore, getBookDetail }
+export { getRecommendMore, getBookDetail }

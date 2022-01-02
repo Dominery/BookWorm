@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { TitleHeader, Layout, BackIcon, BookFlip } from 'components/index'
-import { getBookDetail } from 'service/index'
+import { getBookDetail, getRecommendMore } from 'service/index'
 import BookIntroduction from './bookIntroduction/index'
 import CollapsibleLines from './collapsibleLines/index'
 import UpdateInfo from './updateInfo/index'
 import RecommendCard from './recommendCard/index'
 import BottomBar from './bottomBar/index'
+import { Navigation } from 'utils/data'
 
 function BookDetail({ match, location }) {
   const { id } = match.params
@@ -35,7 +36,7 @@ function BookDetail({ match, location }) {
           <BookIntroduction bookInfo={detail} />
           <CollapsibleLines lines={detail.desc} />
           <UpdateInfo chapterName={detail.chapterName} time={detail.time} bookId={id} />
-          <RecommendCard books={detail.recommend} to={`/book/more/${id}`} />
+          <RecommendCard books={detail.recommend} to={Navigation.MoreBook} bookId={bookId} />
         </>
       ) : (
         <BookFlip />

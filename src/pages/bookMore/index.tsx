@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { Layout, TitleHeader, BackIcon, BookList } from 'components/index'
+import { getMoreBook } from 'service/discover'
+import { Navigation } from 'utils/data'
+import { getRecommendMore } from 'service/bookDetail'
 
-import { useRecommendMore } from '../../service/index'
+const GET_MORE_FUNC = {
+  [Navigation.Discover]: getMoreBook,
+  [Navigation.BOOK]: getRecommendMore,
+}
 
-function BookDetailMore({ match }) {
+function BookMore({ location }) {
   const [books, setBooks] = useState([])
-  const getMore = useRecommendMore(match?.params?.id)
+  const [pageNum, setPageNum] = useState(1)
+  const { from, params } = location.state
+  const getMore = GET_MORE_FUNC[from]?.(params)
   const header = (
     <TitleHeader left={<BackIcon />}>
       <h1>更多</h1>
@@ -20,10 +28,11 @@ function BookDetailMore({ match }) {
     </Layout>
   )
   function addBooks() {
-    return getMore().then((data) => {
+    return getMore?.(pageNum).then((data) => {
       setBooks([...books, ...data])
+      setPageNum(pageNum + 1)
     })
   }
 }
 
-export default BookDetailMore
+export default BookMore
