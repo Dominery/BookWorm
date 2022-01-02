@@ -40,12 +40,6 @@ const navData = [
     icon: '&#xe630;',
     activeIcon: '&#xe6a2;',
   },
-  {
-    to: Navigation.My,
-    title: '我的',
-    icon: '&#xe78b;',
-    activeIcon: '&#xe78c;',
-  },
 ]
 
 const categoryInfo = [

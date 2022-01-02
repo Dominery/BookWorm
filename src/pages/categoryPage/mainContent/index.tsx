@@ -3,7 +3,7 @@ import { categoryInfo } from 'utils/data'
 import SideBar from './sideBar/index'
 
 import './index.scss'
-import { BookFlip, BookList } from 'components/index'
+import { BookList } from 'components/index'
 import { useCategoryData } from 'service/index'
 function MainContent(props: { className?: string }) {
   const { className } = props
@@ -23,11 +23,7 @@ function MainContent(props: { className?: string }) {
         active={categoryId}
       />
       <div className="main-content__content">
-        {data.length === 0 ? (
-          <BookFlip />
-        ) : (
-          <BookList books={data} onPullUp={() => getMore(categoryId)} className="main-content__list" />
-        )}
+        <BookList books={data} onPullUp={() => getMore(categoryId)} className="main-content__list" />
         <ul className="main-content__channel">
           {categoryInfo.map((item) => (
             <li

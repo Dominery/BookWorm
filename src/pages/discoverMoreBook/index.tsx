@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Layout, TitleHeader, BackIcon, BookList, BookFlip } from 'components/index'
+import { Layout, TitleHeader, BackIcon, BookList } from 'components/index'
 
 import { useMoreBook } from 'service/index'
 
@@ -15,7 +15,7 @@ function DiscoverMoreBook({ match }) {
   }, [])
   return (
     <Layout header={header} contentClass="more-book__content">
-      {data.length === 0 ? <BookFlip /> : <BookList books={data} onPullUp={getMore} />}
+      <BookList books={data} onPullUp={getMore} />
     </Layout>
   )
 }

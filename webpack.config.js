@@ -6,7 +6,7 @@ var babelpolyfill = require('babel-polyfill')
 const resolve = (dir) => path.resolve(__dirname, dir)
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: {
     index: './src/index.ts',
   },

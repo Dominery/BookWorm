@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import { useOnRequest } from 'utils/request'
 import { accessFrequencyProxy } from 'utils/proxy'
 import { fromTop, fromBottom, useTouch } from 'utils/touch'
 import { BackTopIcon, LoadingIcon } from '../../index'
@@ -7,10 +8,10 @@ import { BookInfo } from '../conf'
 
 import './index.scss'
 
-function BookList(props: { className?: string; books: BookInfo[]; onPullUp?: () => Promise<void> }) {
+function BookList(props: { className?: string; books: BookInfo[]; onPullUp: () => Promise<void> }) {
   const { className = '', books, onPullUp } = props
   const bookList = useRef()
-  const [loading, setLoading] = useState(false)
+  const [loading, pullUp] = useOnRequest(onPullUp)
   const [backTop, setBackTop] = useState(false)
   const [touchStart, touchEnd] = useTouch({
     up: pullUp,
@@ -24,7 +25,7 @@ function BookList(props: { className?: string; books: BookInfo[]; onPullUp?: () 
       onScroll={accessFrequencyProxy(scroll, 100)}
     >
       {booksWithDesc(books, 'book-list__item')}
-      {onPullUp && loading && (
+      {(loading || books) && (
         <div className="book-list__item loading-container">
           <LoadingIcon />
         </div>
@@ -32,18 +33,6 @@ function BookList(props: { className?: string; books: BookInfo[]; onPullUp?: () 
       {<BackTopIcon onClick={toTop} className={backTop ? '' : 'backTop--hide'} />}
     </div>
   )
-  function pullUp() {
-    if (fromBottom(bookList) > 10) {
-      return
-    }
-
-    if (!loading) {
-      setLoading(true)
-      onPullUp?.().finally(() => {
-        setLoading(false)
-      })
-    }
-  }
   function scroll() {
     console.log('scroll')
     if (fromTop(bookList) > 500) {

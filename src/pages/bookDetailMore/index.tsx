@@ -16,7 +16,7 @@ function BookDetailMore({ match }) {
   }, [])
   return (
     <Layout header={header} contentClass="more-book__content">
-      {books && <BookList books={books} onPullUp={addBooks} />}
+      <BookList books={books} onPullUp={addBooks} />
     </Layout>
   )
   function addBooks() {
