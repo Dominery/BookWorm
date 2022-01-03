@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import BookImage from '../book/bookImage/index'
+import BookImage from '../bookImage/index'
 import { useSequential } from 'utils/sequentialGenerator'
 
 import './index.scss'
@@ -11,7 +11,7 @@ interface CoverItem {
   bookId: number
 }
 
-function CoverSwiper(props: { items: CoverItem[] }) {
+function BookTriangle(props: { items: CoverItem[] }) {
   const [items, setItems] = useState(props.items)
   const [range, next] = useSequential(3)
   useEffect(() => {
@@ -73,4 +73,4 @@ function createSwiperItem(items: CoverItem[], range: number[]) {
   ))
 }
 
-export default CoverSwiper
+export default BookTriangle

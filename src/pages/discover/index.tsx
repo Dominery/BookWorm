@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import {
-  CoverSwiper,
+  BookTriangle,
   Layout,
   TabBar,
   TitleHeader,
@@ -57,7 +57,7 @@ function Discover({ match }) {
             '个人页面尚未开发',
           ]}
         />
-        <CoverSwiper items={randomChoose(chooseCategoryBookList(data), 3)} />
+        <BookTriangle items={randomChoose(chooseCategoryBookList(data), 3)} />
         {onRequest ? <BookFlip /> : typeCards(data)}
       </>
     </Layout>
