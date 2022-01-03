@@ -6,7 +6,7 @@ var babelpolyfill = require('babel-polyfill')
 const resolve = (dir) => path.resolve(__dirname, dir)
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: {
     index: './src/index.ts',
   },
@@ -61,7 +61,7 @@ module.exports = {
       },
     ],
   },
-  devtool: 'source-map',
+  devtool: false,
   resolve: {
     // 先尝试 ts 后缀的 TypeScript 源码文件
     extensions: ['.tsx', '.ts', '.js'],
@@ -70,7 +70,7 @@ module.exports = {
       components: resolve('src/components'),
       utils: resolve('src/utils'),
       images: resolve('src/assets/images'),
-      service: resolve('src/service')
+      service: resolve('src/service'),
     },
   },
   plugins: [

@@ -1,12 +1,3 @@
-@font-face {
-  font-family: 'PingFangSCRegular';
-  src: url('../fonts/PingFangSCRegular.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Yellowtail';
-  src: url('../fonts/Yellowtail-Regular.ttf') format('truetype');
-}
-
 html,
 body,
 div,
@@ -49,7 +40,7 @@ nav {
   border: none;
   outline: none;
 
-  font-family: 'PingFangSCRegular';
+  font-family: 'Arial';
   font-size: inherit;
 }
 
