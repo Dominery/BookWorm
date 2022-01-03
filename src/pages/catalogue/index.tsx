@@ -7,7 +7,6 @@ function Catalogue({ match }) {
   const bookId = match.params.id
   useEffect(() => {
     getCatalogue(bookId).then((data) => {
-      console.log(data)
       setCatalogue(data)
     })
   }, [])
