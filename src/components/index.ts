@@ -19,6 +19,7 @@ import { BookInfo } from './book/conf'
 import Toast, { ToastContext } from './toast/index'
 import LinkedSearchBox from './searchBox/LinkedSearchBox/index'
 import NewsTicker from './newsTicker/index'
+import CheckIcon from './Icon/checkIcon/index'
 export {
   ToggleIcon,
   BookFlip,
@@ -34,6 +35,7 @@ export {
   TitleHeader,
   BoxHeader,
   BackIcon,
+  CheckIcon,
   TypeCard,
   BookSlider,
   BookList,

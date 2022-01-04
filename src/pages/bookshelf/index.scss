@@ -1,5 +1,31 @@
 @import '../../assets/styles/variables.scss';
 
-.bookshelf__book {
-  display: inline-block;
+.bookshelf {
+  &__book {
+  }
+  &__line-book {
+    display: inline-block;
+  }
+  &__list-book {
+    display: block;
+    margin: 0.5em 0;
+    background-color: var(--color-background);
+  }
+  &__layout {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    &--active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  &__button {
+    margin-right: 0.5em;
+    font-size: 1.3rem;
+    color: var(--color-background);
+  }
 }

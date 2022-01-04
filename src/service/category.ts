@@ -22,6 +22,7 @@ function useCategoryData(): [any[], (categoryId: number) => Promise<void>, (cate
   }
   const getData = (categoryId: number) => {
     setPage(1)
+    setData([])
     return request(categoryId, 1).then((requestData) => {
       setData(requestData)
       setPage(pageNum + 1)
