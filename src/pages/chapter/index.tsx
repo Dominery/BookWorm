@@ -88,7 +88,9 @@ function Chapter({ match, location }) {
   function createMenuItems(bookId: number, chapterIdList: any[]) {
     return [
       {
-        element: <BookCatalogue catalogue={chapterIdList} className="catalogue-menuItem" bookId={bookId} />,
+        element: (
+          <BookCatalogue catalogue={chapterIdList} className="catalogue-menuItem" bookId={bookId} chapterId={id} />
+        ),
         buttonId: 'catalogue',
         icon: ICONS.TOGGLE,
       },
