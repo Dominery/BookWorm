@@ -6,12 +6,18 @@ function Search() {
   const [searchValue, setSearchValue] = useState('')
   const [getData, getMore] = useSearch()
   const [books, setBooks] = useState([])
+  const [click, setClick] = useState(false)
   const header = (
     <BoxHeader left={<BackIcon />}>
       <SearchBox
         value={searchValue}
         setValue={setSearchValue}
-        searchClick={(value) => getData(value).then((data) => setBooks(data))}
+        searchClick={(value) => {
+          if (!value) return
+          setClick(true)
+          setBooks([])
+          getData(value).then((data) => setBooks(data))
+        }}
       />
     </BoxHeader>
   )
@@ -19,9 +25,7 @@ function Search() {
   return (
     <Layout header={header} contentClass="more-book__content">
       <>
-        {searchValue && (
-          <BookList books={books} onPullUp={() => getMore().then((data) => setBooks([...books, ...data]))} />
-        )}
+        {click && <BookList books={books} onPullUp={() => getMore().then((data) => setBooks([...books, ...data]))} />}
       </>
     </Layout>
   )
