@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function useExclusiveButtons(ids: string[]): [any, (buttonId: string) => void] {
+function useExclusiveButtons(ids: string[]): [object, (buttonId: string) => void] {
   const [buttons, setButtons] = useState(init(ids))
   const press = (buttonId) => {
     console.log(`press ${buttonId}`)

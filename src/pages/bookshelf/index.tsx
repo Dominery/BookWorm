@@ -1,14 +1,5 @@
 import React, { useState } from 'react'
-import {
-  BoxHeader,
-  Layout,
-  TabBar,
-  verticalBooks,
-  LinkedSearchBox,
-  ToggleIcon,
-  BookInfo,
-  booksWithoutDesc,
-} from 'components/index'
+import { BoxHeader, Layout, TabBar, verticalBooks, LinkedSearchBox, BookInfo, booksWithoutDesc } from 'components/index'
 
 import './index.scss'
 import { Navigation, ICONS } from 'utils/data'

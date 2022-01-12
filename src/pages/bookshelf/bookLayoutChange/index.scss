@@ -4,7 +4,7 @@
   &__item {
     line-height: 2;
   }
-  & * + * {
+  & > * + * {
     border-top: 1px solid var(--color-shadow);
   }
   &__info {

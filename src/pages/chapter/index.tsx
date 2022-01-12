@@ -128,7 +128,7 @@ function Chapter({ match, location }) {
   }
 }
 
-function createChapter(data: any[]) {
+function createChapter(data: { id: string; content: string; name: string }[]) {
   return data.map((item) => <section key={item.id}>{generateParagraph(item.content, item.name)}</section>)
 }
 
