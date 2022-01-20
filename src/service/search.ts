@@ -1,7 +1,8 @@
 import { useState } from 'react'
+import { BookInfo } from './type'
 import { chooseCategoryBookList, getDiscover } from './discover'
 
-function useSearch(): [(keyword: string) => Promise<any[]>, () => Promise<any[]>] {
+function useSearch(): [(keyword: string) => Promise<BookInfo[]>, () => Promise<BookInfo[]>] {
   const [pageNum, setPage] = useState(0)
   const getMore = () => {
     return getDiscover()

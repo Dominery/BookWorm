@@ -1,26 +1,27 @@
 import React from 'react'
 import { booksWithoutDesc, verticalBooks, booksWithDesc, TypeCard } from 'components/index'
 import { Navigation } from 'utils/data'
+import { BookInfo, BookTypes } from 'service/type'
 
 const RULES = {
   RECENT_UPDATE: {
-    func: (bookList: any[]) => {
+    func: (bookList: BookInfo[]) => {
       return booksWithoutDesc(bookList.slice(0, 4), 'width--50')
     },
   },
   READ_MOST: {
-    func: (bookList: any[]) => {
+    func: (bookList: BookInfo[]) => {
       return verticalBooks(bookList.slice(0, 8), 'width--25')
     },
   },
   CATEGORY: {
-    func: (bookList: any[]) => {
+    func: (bookList: BookInfo[]) => {
       return booksWithDesc(bookList.slice(0, 6))
     },
   },
 }
 
-function typeCards(discoverData: any[]) {
+function typeCards(discoverData: BookTypes[]) {
   return discoverData
     .filter((typeItem) => !!RULES[typeItem.type])
     .map((typeItem) => {

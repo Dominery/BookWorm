@@ -1,49 +1,11 @@
-import { useState } from 'react'
 import { imgUrlAdapter } from './adapter'
 import { ajaxGetProxy } from 'utils/request'
 import { DISCOVER_MORE_URL, DISCOVER_URL } from 'utils/conf'
 import { randomPick, shuffle } from 'utils/random'
 import { categoryInfo } from 'utils/data'
+import { BookInfo, BookTypes } from './type'
 
-function useDiscoverData() {
-  const [data, setData] = useState([])
-  const getData = () => {
-    ajaxGetProxy(DISCOVER_URL)
-      .then((data) => {
-        const categories =
-          data.list
-            ?.filter((item) => item.type === 'CATEGORY')
-            .reduce((pre: [], cur) => {
-              return pre.concat(cur.bookList ?? [])
-            }, []) ?? []
-        const result: any[] = data.list?.filter((item) => item.type !== 'CATEGORY') ?? []
-        result.push({
-          categoryName: '猜你喜欢',
-          bookList: shuffle<any>(categories),
-          type: 'CATEGORY',
-        })
-        return result
-      })
-      .then((data) => {
-        console.log(data)
-        return data.map((item) => {
-          const { bookList, ...other } = item
-          return {
-            ...other,
-            bookList: bookList.map(imgUrlAdapter),
-          }
-        })
-      })
-      .then((data) => {
-        setData(data)
-      })
-  }
-  return {
-    data,
-    getData,
-  }
-}
-function getDiscover() {
+function getDiscover(): Promise<BookTypes[]> {
   return ajaxGetProxy(DISCOVER_URL)
     .then((data) => {
       const categories =
@@ -71,12 +33,12 @@ function getDiscover() {
     })
 }
 
-function chooseCategoryBookList(discoverData: any[]): any[] {
+function chooseCategoryBookList(discoverData: BookTypes[]): BookInfo[] {
   return discoverData.find((item) => item.type === 'CATEGORY')?.bookList ?? []
 }
 const categoryIds = categoryInfo.flatMap((item) => item.categories).map((item) => item.categoryId)
 
-function getMoreBook(type: string): (pageNum: number) => Promise<any[]> {
+function getMoreBook(type: string): (pageNum: number) => Promise<BookInfo[]> {
   return (pageNum: number) => {
     return ajaxGetProxy(DISCOVER_MORE_URL, {
       params: {

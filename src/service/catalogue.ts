@@ -1,7 +1,8 @@
 import { CATALOGUE_URL } from 'utils/conf'
 import { ajaxGetProxy } from 'utils/request'
+import { CatalogueInfo } from './type'
 
-function getCatalogue(bookId: number): Promise<any[]> {
+function getCatalogue(bookId: number): Promise<CatalogueInfo[]> {
   return ajaxGetProxy(CATALOGUE_URL, {
     params: {
       bookId,

@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { BoxHeader, Layout, TabBar, verticalBooks, LinkedSearchBox, BookInfo, booksWithoutDesc } from 'components/index'
+import { BoxHeader, Layout, TabBar, verticalBooks, LinkedSearchBox, booksWithoutDesc } from 'components/index'
 
 import './index.scss'
 import { Navigation, ICONS } from 'utils/data'
 import { getBookShelf } from 'utils/storage'
 import BookLayoutChange from './bookLayoutChange/index'
+import { BookInfo } from 'service/type'
 
 const CHOICES = [
   {

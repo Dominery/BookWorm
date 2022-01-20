@@ -3,6 +3,7 @@ import { getRecommendMore, getBookDetail } from './bookDetail'
 import { useCategoryData, getSpecialBooks } from './category'
 import getCatalogue from './catalogue'
 import useSearch from './search'
+import getChapters from './chapter'
 
 export {
   getMoreBook,
@@ -14,4 +15,5 @@ export {
   getSpecialBooks,
   useSearch,
   getBookDetail,
+  getChapters,
 }

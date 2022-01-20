@@ -15,7 +15,7 @@ function useImgLoad(): [string, React.Dispatch<React.SetStateAction<string>>] {
   return [src, newSetSrc]
 }
 
-function hashCode(str) {
+function hashCode(str: string) {
   let hash = 0
   if (str.length === 0) return hash
   for (let i = 0, len = str.length; i < len; i++) {
@@ -26,7 +26,7 @@ function hashCode(str) {
   return hash
 }
 
-function cacheProxy(func) {
+function cacheProxy(func: (...params: any[]) => any) {
   const cache = {}
   return async function (...params) {
     const key = hashCode(params.reduce((pre, cur) => pre + JSON.stringify(cur), ''))
@@ -36,7 +36,7 @@ function cacheProxy(func) {
   }
 }
 
-function accessTimeProxy(func, limitMillSec: number) {
+function accessTimeProxy(func: (...params: any[]) => any, limitMillSec: number) {
   let lastTime = 0
   return function run(...params) {
     const now = Date.now()

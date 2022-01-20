@@ -1,9 +1,9 @@
-import { useState } from 'react'
 import { BOOK_DETAIL_RECOMMEND_URL, BOOK_DETAIL_URL } from 'utils/conf'
 import { ajaxGetProxy } from 'utils/request'
 import { imgUrlAdapter, stateAdapter } from './adapter'
+import { BookDetail, BookInfo } from './type'
 
-function getBookDetail(bookId: number) {
+function getBookDetail(bookId: number): Promise<BookDetail> {
   return ajaxGetProxy(BOOK_DETAIL_URL, {
     params: {
       bookId,
@@ -17,7 +17,7 @@ function getBookDetail(bookId: number) {
   })
 }
 
-function getRecommendMore(bookId: number): (pageNum: number) => Promise<any[]> {
+function getRecommendMore(bookId: number): (pageNum: number) => Promise<BookInfo[]> {
   return (pageNum: number) => {
     return ajaxGetProxy(BOOK_DETAIL_RECOMMEND_URL, {
       params: {

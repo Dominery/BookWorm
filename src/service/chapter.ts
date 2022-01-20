@@ -1,7 +1,8 @@
 import { CHAPTER_URL } from 'utils/conf'
 import { ajaxPostProxy } from 'utils/request'
+import { ChapterInfo } from './type'
 
-function getChapters(bookId: number, chapterIdList: string[], v: number): Promise<any[]> {
+function getChapters(bookId: number, chapterIdList: string[], v: number): Promise<ChapterInfo[]> {
   return ajaxPostProxy(CHAPTER_URL, {
     bookId,
     chapterIdList,

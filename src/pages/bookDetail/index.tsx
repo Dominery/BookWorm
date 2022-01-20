@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { TitleHeader, Layout, BackIcon, BookFlip } from 'components/index'
-import { getBookDetail, getRecommendMore } from 'service/index'
+import { getBookDetail } from 'service/index'
 import BookIntroduction from './bookIntroduction/index'
 import CollapsibleLines from './collapsibleLines/index'
 import UpdateInfo from './updateInfo/index'
 import RecommendCard from './recommendCard/index'
 import BottomBar from './bottomBar/index'
 import { Navigation } from 'utils/data'
+import { BookDetail, BookInfo } from 'service/type'
 
 function BookDetail({ match, location }) {
   const { id } = match.params
   const [bookId, setBookId] = useState(id)
-  const [detail, setDetail] = useState(null as any)
+  const [detail, setDetail] = useState(null as BookDetail)
   useEffect(() => {
     const data = location?.state?.detail
     if (data) {
@@ -30,7 +31,7 @@ function BookDetail({ match, location }) {
     </TitleHeader>
   )
   return (
-    <Layout header={header} footer={<BottomBar book={detail} />}>
+    <Layout header={header} footer={<BottomBar book={detail as unknown as BookInfo} />}>
       {detail && id === bookId ? (
         <>
           <BookIntroduction bookInfo={detail} />

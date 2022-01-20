@@ -4,6 +4,7 @@ import { ajaxGetProxy } from 'utils/request'
 import { CATEGORY_URL } from 'utils/conf'
 import { chooseCategoryBookList, getDiscover } from './discover'
 import { randomChoose } from 'utils/random'
+import { BookInfo } from './type'
 
 function getSpecialBooks() {
   return getDiscover().then((data) => {
@@ -11,7 +12,7 @@ function getSpecialBooks() {
   })
 }
 
-function useCategoryData(): [any[], (categoryId: number) => Promise<void>, (categoryId: number) => Promise<void>] {
+function useCategoryData(): [BookInfo[], (categoryId: number) => Promise<void>, (categoryId: number) => Promise<void>] {
   const [data, setData] = useState([])
   const [pageNum, setPage] = useState(1)
   const getMore = (categoryId: number) => {

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { BookInfo, BOOK_DESC_CLASS } from './conf'
+import { BOOK_DESC_CLASS } from './conf'
 import Book from './bookLayout/index'
+import { BookInfo } from 'service/type'
 
 function mapFunc(className: string, vertical = false) {
   return (contentFunc?: (book: BookInfo) => JSX.Element, bookClass = '') =>

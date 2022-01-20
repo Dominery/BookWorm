@@ -15,7 +15,6 @@ import TypeCard from './typeCard/index'
 import BookSlider from './book/bookSlider/index'
 import BookList from './book/bookList/index'
 import BookCatalogue from './book/bookCatalogue/index'
-import { BookInfo } from './book/conf'
 import Toast, { ToastContext } from './toast/index'
 import LinkedSearchBox from './searchBox/LinkedSearchBox/index'
 import NewsTicker from './newsTicker/index'
@@ -42,7 +41,6 @@ export {
   LoadingIcon,
   BookCatalogue,
   BackTopIcon,
-  BookInfo,
   Toast,
   ToastContext,
   LinkedSearchBox,

@@ -14,7 +14,7 @@ function useExclusiveButtons(ids: string[]): [object, (buttonId: string) => void
     return keys.reduce((pre, cur) => {
       pre[cur] = false
       return pre
-    }, {})
+    }, Object.create(null))
   }
 }
 

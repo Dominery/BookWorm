@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { BookInfo } from 'service/type'
 import { ICONS } from 'utils/data'
 import BookImage from '../bookImage/index'
-import { BookInfo } from '../conf'
 
 import './index.scss'
 function BookSlider(props: { className?: string; books: BookInfo[] }) {

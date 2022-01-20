@@ -1,12 +1,12 @@
 import React, { useRef, useState } from 'react'
 import { useOnRequest } from 'utils/request'
 import { accessFrequencyProxy } from 'utils/proxy'
-import { fromTop, fromBottom, useTouch } from 'utils/touch'
+import { fromTop, useTouch } from 'utils/touch'
 import { BackTopIcon, LoadingIcon } from '../../index'
 import { booksWithDesc } from '../bookGenerator'
-import { BookInfo } from '../conf'
 
 import './index.scss'
+import { BookInfo } from 'service/type'
 
 function BookList(props: { className?: string; books: BookInfo[]; onPullUp: () => Promise<void> }) {
   const { className = '', books, onPullUp } = props

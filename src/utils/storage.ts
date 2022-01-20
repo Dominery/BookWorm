@@ -1,4 +1,4 @@
-import { BookInfo } from 'components/index'
+import { BookInfo } from 'service/type'
 
 const storage = window.localStorage
 

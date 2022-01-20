@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Layout, TitleHeader, BackIcon, BookCatalogue } from 'components/index'
 import { getCatalogue } from 'service/index'
+import { CatalogueInfo } from 'service/type'
 
 function Catalogue({ match }) {
-  const [catalogue, setCatalogue] = useState([])
-  const bookId = match.params.id
+  const [catalogue, setCatalogue] = useState([] as CatalogueInfo[])
+  const bookId: number = match.params.id
   useEffect(() => {
     getCatalogue(bookId).then((data) => {
       setCatalogue(data)

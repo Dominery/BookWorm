@@ -3,22 +3,29 @@ import { BackIcon, BookCatalogue, BookFlip, TitleHeader, ToastContext } from 'co
 import BottomMenu from './bottomMenu/index'
 
 import './index.scss'
-import getChapters from 'service/chapter'
 import { fromBottom, fromTop, useTouch } from 'utils/touch'
 import FontMenuItem from './bottomMenu/fontMenuItem/index'
 import ColorMenuItem from './bottomMenu/colorMenuItem/index'
 import { CHAPTER_COLORS, ICONS } from 'utils/data'
 import { useOnRequest } from 'utils/request'
+import { CatalogueInfo, ChapterInfo } from 'service/type'
+import { getChapters } from 'service/index'
 
 const colors = CHAPTER_COLORS.map((item) => item.background)
 
+interface ChapterIdsInfo {
+  chapterIdList: CatalogueInfo[]
+  v: number
+  id: string
+}
+
 function Chapter({ match, location }) {
-  const { chapterIdList, v, id } = location.state
+  const { chapterIdList, v, id } = location.state as ChapterIdsInfo
   const bookId = match.params.id
   const [touch, setTouch] = useState(false)
   const [finished, setFinished] = useState(false)
-  const [currentChapterId, setCurrentChapterId] = useState(id)
-  const [chapterData, setChapterData] = useState([])
+  const [currentChapterId, setCurrentChapterId] = useState(id as string)
+  const [chapterData, setChapterData] = useState([] as ChapterInfo[])
   const contentRef = useRef()
   const setToast = useContext(ToastContext)
   const [onRequest, request] = useOnRequest(() => requestChapter(id, (chapters) => setChapterData(chapters)))
@@ -67,7 +74,7 @@ function Chapter({ match, location }) {
     </div>
   )
 
-  function requestChapter(currentId: string, process: (newChapter: any[]) => void) {
+  function requestChapter(currentId: string, process: (newChapter: ChapterInfo[]) => void) {
     const chapterIds = getRequestChapterIdList(currentId, chapterIdList)
     if (finished || chapterIds.length === 0) {
       return
@@ -85,7 +92,7 @@ function Chapter({ match, location }) {
     })
   }
 
-  function createMenuItems(bookId: number, chapterIdList: any[]) {
+  function createMenuItems(bookId: number, chapterIdList: CatalogueInfo[]) {
     return [
       {
         element: (
@@ -128,11 +135,11 @@ function Chapter({ match, location }) {
   }
 }
 
-function createChapter(data: { id: string; content: string; name: string }[]) {
+function createChapter(data: ChapterInfo[]) {
   return data.map((item) => <section key={item.id}>{generateParagraph(item.content, item.name)}</section>)
 }
 
-function getNextChapterId(currentId: string, chapterIdList: any[], dataLength: number): null | string {
+function getNextChapterId(currentId: string, chapterIdList: CatalogueInfo[], dataLength: number): null | string {
   const index = chapterIdList.findIndex((item) => item.id === currentId)
   if (index === -1 || index + dataLength > chapterIdList.length - 1) {
     return null
@@ -140,7 +147,7 @@ function getNextChapterId(currentId: string, chapterIdList: any[], dataLength: n
   return chapterIdList[index + dataLength].id
 }
 
-function getRequestChapterIdList(currentId: string, chapterIdList: any[]) {
+function getRequestChapterIdList(currentId: string, chapterIdList: CatalogueInfo[]) {
   const index = chapterIdList.findIndex((item) => item.id === currentId)
   if (index === -1) return []
   return chapterIdList.slice(index, index + 1).map((item) => item.id)

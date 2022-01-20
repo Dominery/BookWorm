@@ -17,9 +17,10 @@ import { randomChoose } from 'utils/random'
 import { Navigation } from 'utils/data'
 import { useOnRequest } from 'utils/request'
 import { fromTop, useTouch } from 'utils/touch'
+import { BookTypes } from 'service/type'
 
 function Discover({ match }) {
-  const [data, setData] = useState([])
+  const [data, setData] = useState([] as BookTypes[])
   const [onRequest, getData] = useOnRequest(getDiscover)
   const scrollRef = useRef()
   const setToast = useContext(ToastContext)

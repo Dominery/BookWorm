@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
-import { BookInfo, ToastContext } from 'components/index'
+import { ToastContext } from 'components/index'
 import { addToBookShelf, isInBookShelf, removeFromBookShelf } from 'utils/storage'
+import { BookInfo } from 'service/type'
 
 import './index.scss'
 function BottomBar(props: { book?: BookInfo }) {

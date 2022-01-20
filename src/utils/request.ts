@@ -30,7 +30,7 @@ async function ajaxPost(url: string, data = {}) {
 const ajaxGetProxy = cacheProxy(ajaxGet)
 const ajaxPostProxy = cacheProxy(ajaxPost)
 
-function useOnRequest(requestFunc: (...params) => Promise<any>): [boolean, (...params: any[]) => Promise<any>] {
+function useOnRequest<T>(requestFunc: (...params) => Promise<T>): [boolean, (...params: any[]) => Promise<T>] {
   const [onRequest, setRequest] = useState(false)
   const request = (...params) => {
     setRequest(true)

@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { BoxHeader, SearchBox, Layout, BookList, BackIcon } from 'components/index'
 import useSearch from 'service/search'
+import { BookInfo } from 'service/type'
 
 function Search() {
   const [searchValue, setSearchValue] = useState('')
   const [getData, getMore] = useSearch()
-  const [books, setBooks] = useState([])
+  const [books, setBooks] = useState([] as BookInfo[])
   const [click, setClick] = useState(false)
   const header = (
     <BoxHeader left={<BackIcon />}>

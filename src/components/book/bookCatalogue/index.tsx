@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { CatalogueInfo } from 'service/type'
 import { ICONS } from 'utils/data'
 import BookFlip from '../bookFlip/index'
 
 import './index.scss'
-interface CatalogueInfo {
-  id: string
-  name: string
-  v: number
-}
 const LIMIT_PAGE_NUM = 100
 
 function BookCatalogue(props: { catalogue: CatalogueInfo[]; className?: string; bookId: number; chapterId?: string }) {
@@ -143,3 +139,4 @@ function range(start: number, end: number, step = 1): number[] {
 }
 
 export default BookCatalogue
+export { CatalogueInfo }

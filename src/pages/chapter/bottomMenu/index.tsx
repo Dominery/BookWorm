@@ -19,7 +19,7 @@ function BottomMenu(props: { className?: string; menuItems: MenuItem[] }) {
     </div>
   )
 }
-function generateIcons(buttons: any, menuItems: MenuItem[], press: (buttonId: string) => void) {
+function generateIcons(buttons: object, menuItems: MenuItem[], press: (buttonId: string) => void) {
   return menuItems.map((item) => (
     <i
       className={`iconfont ${buttons[item.buttonId] ? 'button--active' : ''}`}
@@ -30,7 +30,7 @@ function generateIcons(buttons: any, menuItems: MenuItem[], press: (buttonId: st
   ))
 }
 
-function generateMenuItems(menuItems: any[], buttons: any) {
+function generateMenuItems(menuItems: MenuItem[], buttons: object) {
   return menuItems.map((item) => (
     <div
       key={item.buttonId}

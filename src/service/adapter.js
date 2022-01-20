@@ -14,11 +14,11 @@ function stateAdapter(bookInfo) {
     update: { chapterName, chapterStatus, time },
     ...info
   } = bookInfo
-  info.state = StateMap[chapterStatus]
   return {
     ...info,
     chapterName,
     time,
+    state: StateMap[chapterStatus],
   }
 }
 
