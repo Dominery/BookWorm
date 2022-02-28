@@ -1,29 +1,25 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const {srcPath,distPath} = require('./paths')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-var babelpolyfill = require('babel-polyfill')
-
-const resolve = (dir) => path.resolve(__dirname, dir)
 
 module.exports = {
-  mode: 'development',
   entry: {
-    index: './src/index.ts',
-  },
-  output: {
-    path: resolve('dist'),
-    filename: 'js/[name].js',
-    clean: true,
+    index: path.join(srcPath,'index.ts')
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         use: ['babel-loader'],
+        include: srcPath,
+        exclude: /node_modules/
       },
       {
         test: /\.tsx?$/,
         use: ['babel-loader', 'ts-loader'],
+        include: srcPath,
+         exclude: /node_modules/
       },
       {
         test: /\.css$/,
@@ -61,26 +57,24 @@ module.exports = {
       },
     ],
   },
-  devtool: false,
   resolve: {
     // 先尝试 ts 后缀的 TypeScript 源码文件
     extensions: ['.tsx', '.ts', '.js'],
     alias: {
-      styles: resolve('src/assets/styles'),
-      components: resolve('src/components'),
-      utils: resolve('src/utils'),
-      images: resolve('src/assets/images'),
-      service: resolve('src/service'),
+      styles: path.join(srcPath,'assets/styles'),
+      components: path.join(srcPath,'components'),
+      utils: path.join(srcPath,'utils'),
+      images: path.join(srcPath,'assets/images'),
+      service: path.join(srcPath,'service'),
     },
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: ' [name].css',
-      chunkFilename: '[id].css',
+      filename: ' [name].[hash:8].css',
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: './src/template/index.html',
+      template: path.join(srcPath,'template/index.html')
     }),
   ],
 }
